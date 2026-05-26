@@ -778,3 +778,12 @@ main {
   color: var(--ink);
   margin-top: 0;
 }
+
+.worklog-entry h2 {
+  color: var(--ink);
+  margin-top: 0;
+}
+
+.worklog-entry ul {
+  margin-top: 1rem;
+}

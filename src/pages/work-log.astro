@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import worklogData from '../data/worklog.json';
+
+const entries = worklogData.items;
+---
+
+<Layout title="Work log — Chris Sainsbury" currentPath="/work-log">
+  <section class="page-header copy">
+    <div class="eyebrow">work log</div>
+    <h1>Work log</h1>
+    <p class="lead">
+      A selective, public-safe record of useful work: site updates, research outputs, project
+      milestones, and infrastructure improvements.
+    </p>
+    <p class="small">
+      This is a curated public log, not a full private task history.
+    </p>
+  </section>
+
+  <section class="panel section">
+    <div class="list worklog-list">
+      {entries.map((entry) => (
+        <article class="list-item worklog-entry">
+          <div class="publication-meta">
+            <span class="status">{entry.date}</span>
+            <span class="small">{entry.title}</span>
+          </div>
+          <h2>{entry.title}</h2>
+          <p>{entry.summary}</p>
+          <ul>
+            {entry.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <div class="tag-list">
+            {entry.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Layout>

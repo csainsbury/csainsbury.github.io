@@ -1,0 +1,17 @@
+{
+  "description": "Curated public work log entries for sainsbury.ai. Keep entries public-safe and high level; do not include private task state, raw clinical details, inbox content, or collaborator-sensitive material.",
+  "items": [
+    {
+      "date": "2026-05-26",
+      "title": "sainsbury.ai first public version",
+      "summary": "Launched the first bare-bones version of sainsbury.ai as a static GitHub Pages site, connected the custom domain, and shaped the initial public pages for projects and outputs.",
+      "items": [
+        "Set up the Astro static site and GitHub Pages deployment workflow.",
+        "Connected sainsbury.ai with HTTPS and Proton-backed public email.",
+        "Seeded the outputs page from the public Google Scholar profile.",
+        "Added a lightweight monthly publication-update check that opens a review issue rather than auto-publishing changes."
+      ],
+      "tags": ["website", "github-pages", "outputs", "public-profile"]
+    }
+  ]
+}
