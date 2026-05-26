@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import publicationsData from '../data/publications.json';
 
 const featuredProjects = [
   {
@@ -46,28 +47,7 @@ const featuredProjects = [
   },
 ];
 
-const outputs = [
-  {
-    title: 'ASCENDgpt',
-    type: 'Paper',
-    summary: 'Phenotype-aware encoder for cardiovascular risk prediction.',
-  },
-  {
-    title: 'FlatASCEND',
-    type: 'Paper / preprint track',
-    summary: 'Autoregressive clinical sequence modelling with pharmacological association testing.',
-  },
-  {
-    title: 'FlatASCEND SAE interpretability',
-    type: 'Paper / preprint track',
-    summary: 'Sparse autoencoders for interpreting an EHR foundation model.',
-  },
-  {
-    title: 'ORCA',
-    type: 'Working paper',
-    summary: 'Language-like structure in EHR sequences, including translation and generative consequences.',
-  },
-];
+const recentOutputs = publicationsData.items.slice(0, 5);
 
 const themes = [
   'Clinical foundation models',
@@ -105,12 +85,12 @@ const themes = [
 
     <aside class="panel hero-side stack">
       <div class="metric">
-        <strong>Based in</strong>
-        <span class="muted">Glasgow</span>
-      </div>
-      <div class="metric">
         <strong>Public links</strong>
-        <span class="muted">glucose.ai · ORCID available · GitHub profile live</span>
+        <div class="tag-list">
+          <a class="tag" href="https://glucose.ai" target="_blank" rel="noreferrer">glucose.ai</a>
+          <a class="tag" href="https://orcid.org/0000-0002-7984-5721" target="_blank" rel="noreferrer">ORCID</a>
+          <a class="tag" href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
       </div>
       <div class="metric">
         <strong>Current emphasis</strong>
@@ -120,14 +100,6 @@ const themes = [
   </section>
 
   <section class="section panel">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">featured projects</div>
-        <h2>Main threads of work</h2>
-      </div>
-      <a href="/projects">See all projects</a>
-    </div>
-
     <div class="grid two">
       {featuredProjects.map((project) => (
         <article class="card panel">
@@ -143,16 +115,21 @@ const themes = [
   <section class="grid two" style="margin-top: 1rem;">
     <div class="section panel">
       <div class="eyebrow">recent outputs</div>
-      <h2>Selected papers and writing</h2>
-      <div class="list">
-        {outputs.map((item) => (
-          <div class="list-item">
-            <div class="status">{item.type}</div>
-            <h3>{item.title}</h3>
-            <p>{item.summary}</p>
-          </div>
+      <h2>Papers and scholarly outputs</h2>
+      <div class="list publications-list">
+        {recentOutputs.map((paper) => (
+          <article class="list-item publication-item">
+            <div class="publication-meta">
+              <span class="status">{paper.year}</span>
+              {paper.citedBy && <span class="small">Cited by {paper.citedBy}</span>}
+            </div>
+            <h3>{paper.title}</h3>
+            <p class="muted">{paper.authors}</p>
+            <p>{paper.venue}</p>
+          </article>
         ))}
       </div>
+      <p><a href="/outputs">See all outputs</a></p>
     </div>
 
     <div class="section panel">
