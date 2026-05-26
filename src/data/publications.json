@@ -1,0 +1,133 @@
+{
+  "source": "Google Scholar public profile",
+  "sourceUrl": "https://scholar.google.co.uk/citations?hl=en&user=6zfnq1kAAAAJ&view_op=list_works&sortby=pubdate",
+  "lastRefreshed": "2026-05-26",
+  "note": "Seeded from the first Google Scholar profile page sorted by publication date; verify before treating as a complete publication archive.",
+  "items": [
+    {
+      "title": "Sparse Autoencoder Decomposition of Clinical Sequence Model Representations: Feature Complexity, Task Specialisation, and Mortality Prediction",
+      "authors": "C Sainsbury, F Dong, A Karwath",
+      "venue": "arXiv preprint arXiv:2605.04072",
+      "year": "2026"
+    },
+    {
+      "title": "FlatASCEND: Autoregressive Clinical Sequence Generation with Continuous Time Prediction and Association-Based Pharmacological Testing",
+      "authors": "C Sainsbury, F Dong, K Andreas",
+      "venue": "arXiv",
+      "year": "2026",
+      "citedBy": "1"
+    },
+    {
+      "title": "Implementation of a diabetes electronic health record with clinical decision support in primary care: A mixed methods study",
+      "authors": "J Dickson, S Cunningham, C Sainsbury, M Rutter, N Kanumilli, E Pearson, ...",
+      "venue": "Diabetic Medicine 43, 111-112",
+      "year": "2026"
+    },
+    {
+      "title": "DIABETES2VEC: Learning routine care trajectories to identify incident diabetes risk",
+      "authors": "C Sainsbury, G Jones, A Karwath",
+      "venue": "Diabetes Technology & Therapeutics 28, 140S-141S",
+      "year": "2026"
+    },
+    {
+      "title": "Causal and Active Learning-Based Counterfactual Chest X-ray Generation for Supporting Clinical Decision-Making in Lung Disease",
+      "authors": "Y Zhu, G Mohr, L Zhang, C Sainsbury, F Dong, JD Maclay, DJ Lowe, ...",
+      "venue": "Fifth Conference on Causal Learning and Reasoning",
+      "year": "2026"
+    },
+    {
+      "title": "Study protocol for an open-label, single-arm, mixed methods feasibility study of the MWIQ AI-powered decision support tool for diabetes management in GP practices",
+      "authors": "J Dickson, SG Cunningham, C Sainsbury, MK Rutter, N Kanumilli, ...",
+      "venue": "BMJ Open 15 (10), e097644",
+      "year": "2025"
+    },
+    {
+      "title": "Counterfactual medical images generation for lung disease diagnosis using probabilistic causal models and active learning",
+      "authors": "Y Zhu, L Zhang, C Sainsbury, F Dong, J MacLay, DJ Lowe, X Ye",
+      "venue": "IEEE Access",
+      "year": "2025",
+      "citedBy": "3"
+    },
+    {
+      "title": "ASCENDgpt: A Phenotype-Aware Transformer Model for Cardiovascular Risk Prediction from Electronic Health Records",
+      "authors": "C Sainsbury, A Karwath",
+      "venue": "arXiv preprint arXiv:2509.04485",
+      "year": "2025"
+    },
+    {
+      "title": "Impact on diabetes-related health outcomes using a digitally-enabled diabetes self-management platform in Somerset, UK: An interrupted time-series analysis",
+      "authors": "M Baxter, N Conway, A Bickerton, S Cunningham, SC MacKenzie, ...",
+      "venue": "Primary Care Diabetes 19 (4), 360-367",
+      "year": "2025"
+    },
+    {
+      "title": "Emulating real-world GLP-1 efficacy in type 2 diabetes through causal learning and virtual patients",
+      "authors": "CR MacLellan, H Petkov, C McKeag, F Dong, DJ Lowe, R Maguire, ...",
+      "venue": "PLOS Digital Health 4 (7), e0000927",
+      "year": "2025",
+      "citedBy": "1"
+    },
+    {
+      "title": "Narrative review: continuous glucose monitoring (CGM) in older adults with diabetes",
+      "authors": "A Wilson, D Morrison, C Sainsbury, G Jones",
+      "venue": "Diabetes Therapy 16 (6), 1139-1154",
+      "year": "2025",
+      "citedBy": "11"
+    },
+    {
+      "title": "Factors associated with prescribing initial antidiabetic drugs among patients with type 2 diabetes mellitus in Scotland, 2010–2020: a retrospective population-based study",
+      "authors": "F Mohammad, T Mueller, A Mullen, C Sainsbury, GF Rushworth, A Kurdi",
+      "venue": "Journal of Pharmaceutical Policy and Practice 18 (S2), 135-136",
+      "year": "2025"
+    },
+    {
+      "title": "Designing a Digital Diabetes Inpatient Management Tool for Clinical Non-specialists",
+      "authors": "J Dickson, CAR Sainsbury, S Cunningham, M Stevens, D Brodie, ...",
+      "venue": "IDF World Diabetes Congress 2025: Shape the future of diabetes",
+      "year": "2025"
+    },
+    {
+      "title": "'Data age' prediction from routinely-collected data using machine learning, and association of the difference between predicted and actual age and outcome in type 2 diabetes",
+      "authors": "C Sainsbury, G Jones, A Doney, D Wake",
+      "venue": "Diabetes Technology & Therapeutics 27, E146-E146",
+      "year": "2025"
+    },
+    {
+      "title": "Predicted age difference by deep learning in diabetes retinal screening photographs is an important predictor of complications in type 2 diabetes",
+      "authors": "H Wang, MRK Mookiah, Y Huang, I Mordi, C Sainsbury, ER Pearson, ...",
+      "venue": "Diabetic Medicine 42",
+      "year": "2025"
+    },
+    {
+      "title": "Inequalities in use of continuous glucose monitoring: Age, gender, ethnicity and deprivation impact continuous glucose monitors (CGM) use",
+      "authors": "A Wilson, C Sainsbury, D Morrison, G Jones",
+      "venue": "Diabetic Medicine 42",
+      "year": "2025"
+    },
+    {
+      "title": "The clinical potential of artificial intelligence (AI) applied to type 2 diabetes retinal screening (DRS) photographs to independently predict chronic kidney (CKD) disease risk …",
+      "authors": "H Wang, MRK Mookiah, C Sainsbury, E Trucco, A Doney",
+      "venue": "Diabetic Medicine 42",
+      "year": "2025"
+    },
+    {
+      "title": "Impact on diabetes-related health outcomes using MyWay Diabetes platform in Somerset, UK: An interrupted time-series analysis",
+      "authors": "M Baxter, N Conway, A Bickerton, S Cunningham, S McKenzie, J Dickson, ...",
+      "venue": "Diabetes Professional Care 2024",
+      "year": "2024"
+    },
+    {
+      "title": "Risk modelling for personalised screening interval recommendations for diabetic foot and retinopathy: a retrospective cohort study",
+      "authors": "WT Banas, CA Sainsbury, A Manataki, S Mercer, S Cunningham, ...",
+      "venue": "Diabetologia 67, S395-S396",
+      "year": "2024"
+    },
+    {
+      "title": "Patterns of initial and first‐intensifying antidiabetic drug utilization among patients with type 2 diabetes mellitus in Scotland, 2010–2020: a retrospective population‐based …",
+      "authors": "F Mahmoud, T Mueller, A Mullen, C Sainsbury, GF Rushworth, A Kurdi",
+      "venue": "Diabetes, Obesity and Metabolism 26 (7), 2684-2694",
+      "year": "2024",
+      "citedBy": "5"
+    }
+  ]
+}

@@ -765,3 +765,16 @@ main {
   }
 }
 
+
+.publication-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.publication-item h3 {
+  color: var(--ink);
+  margin-top: 0;
+}

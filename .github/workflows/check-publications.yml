@@ -1,0 +1,44 @@
+name: Check publication updates
+
+on:
+  schedule:
+    # Monthly, low-frequency review check for new public profile entries.
+    - cron: '17 5 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check Google Scholar profile for new titles
+        id: check
+        run: |
+          node scripts/check-publications.mjs | tee check-output.txt
+          grep '^has_updates=' check-output.txt >> "$GITHUB_OUTPUT"
+
+      - name: Open review issue for publication updates
+        if: steps.check.outputs.has_updates == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Review new publication candidates" \
+            --body-file publication_updates.md
+
+      - name: Upload check report
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-update-check
+          path: publication_updates.md
