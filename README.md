@@ -2,7 +2,7 @@
 
 Astro static site for the `sainsbury.ai` public front page.
 
-Status: deployed to GitHub Pages at <https://csainsbury.github.io/>. DNS for `sainsbury.ai` is not connected from this repo yet.
+Status: deployed to GitHub Pages at <https://sainsbury.ai/> with <https://csainsbury.github.io/> as the underlying GitHub Pages site.
 
 ## Commands
 
@@ -31,9 +31,12 @@ This repo includes a GitHub Actions workflow at `.github/workflows/deploy.yml` t
 
 Recommended initial host repo: `csainsbury/csainsbury.github.io`, so the site works at the root GitHub Pages URL before the custom domain is connected.
 
-## Before custom-domain launch
+## Custom domain
 
-- review all wording for public safety and current status
-- decide final public email/contact links
-- connect DNS for `sainsbury.ai`
-- when DNS is ready, add `public/CNAME` containing `sainsbury.ai` and rebuild/deploy
+The custom domain is configured through GitHub Pages and `public/CNAME`:
+
+```text
+sainsbury.ai
+```
+
+DNS is managed externally. GitHub Pages HTTPS is enforced.
