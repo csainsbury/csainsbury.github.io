@@ -8,7 +8,7 @@ const projects = [
     status: 'Translational research thread',
     summary:
       'A line of work using clinical sequence models to identify rare, under-recognised, or hard-to-characterise disease patterns.',
-    why: 'Brings foundation-model methods into clinically specific translational settings where conventional labels may be incomplete or delayed.',
+    aims: 'The aim is to use latent clinical trajectories to surface patients or cohorts whose records contain early, partial, or indirect evidence of a phenotype before conventional coding makes it obvious. This work is intended to support earlier recognition, better cohort definition, and more testable translational hypotheses.',
     links: ['Clinical sequence modelling', 'Rare-case and under-recognised phenotype discovery'],
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     status: 'Research programme',
     summary:
       'A programme built around the idea that electronic health records can be treated as a language, with implications for representation, translation, and generation.',
-    why: 'Provides a larger conceptual frame for EHR modelling, not just another benchmark model.',
+    aims: 'The aim is to move beyond treating EHRs as flat tables of variables and instead study the statistical structure, translation behaviour, and generative possibilities of clinical event sequences. ORCA asks whether coded records can be read, aligned across systems, translated into clinical language, and used to reason about plausible futures.',
     links: ['Working paper in progress', 'Language-of-EHR framing'],
   },
   {
@@ -26,7 +26,7 @@ const projects = [
     status: 'Scientific-discovery system',
     summary:
       'A system for predicting cross-domain scientific method transfer using historical discoveries and validated transfers.',
-    why: 'Extends the portfolio beyond medicine into a broader discovery and method-transfer problem.',
+    aims: 'The aim is to build a system that learns from previous scientific discoveries to suggest where methods, representations, or experimental ideas may transfer next. NEXUS is intended as a grounded discovery assistant: less about generic brainstorming, more about structured evidence for why a method from one domain may work in another.',
     links: ['Methods whitepaper in draft', 'Discovery-system thread'],
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     status: 'Programme-level thread',
     summary:
       'A broader research arc spanning ASCENDgpt, FlatASCEND, and ORCA, focused on modelling structured clinical trajectories.',
-    why: 'Shows continuity and coherence across several papers rather than isolated outputs.',
+    aims: 'The aim is to develop a coherent sequence of EHR foundation-model work: from phenotype-aware representation learning, through autoregressive clinical trajectory generation, to interpretation and language-like translation. The arc is designed to make clinical sequences modelable, inspectable, and ultimately more useful for real clinical research questions.',
     links: ['ASCENDgpt', 'FlatASCEND', 'ORCA'],
   },
   {
@@ -44,17 +44,8 @@ const projects = [
     status: 'Public-facing project',
     summary:
       'A literature intelligence and discovery surface for diabetes and AI / machine learning work.',
-    why: 'Shows a more outward-facing, usable layer of the portfolio beyond papers and grants.',
+    aims: 'The aim is to make the diabetes and AI literature easier to monitor, search, and turn into useful research leads. glucose.ai acts as a public-facing discovery surface for papers, themes, and emerging methods in diabetes, metabolic medicine, and clinical AI.',
     links: ['Public website', 'Diabetes + AI / ML discovery'],
-  },
-  {
-    id: 'mwdh',
-    title: 'MyWay Digital Health work',
-    status: 'Applied / translational thread',
-    summary:
-      'Clinical and research work connected to digital health, outcomes analysis, governance, and translational implementation.',
-    why: 'Keeps the site from looking purely academic and reflects live operational and translational work.',
-    links: ['Outcomes analysis', 'Governance and implementation'],
   },
   {
     id: 'pi-cog',
@@ -62,7 +53,7 @@ const projects = [
     status: 'Research infrastructure',
     summary:
       'Research and coding infrastructure for organising sources, tasks, synthesis, and project state in a more usable system.',
-    why: 'Makes the work itself easier to run, track, and expose coherently across projects.',
+    aims: 'The aim is to make complex research work easier to run: keeping sources, tasks, synthesis, code, and project state connected enough that ideas can be developed without being lost. This infrastructure thread is partly about personal productivity, but also about reusable patterns for agent-supported research workflows.',
     links: ['Infrastructure and workflow notes', 'Agent workflow systems'],
   },
 ];
@@ -83,7 +74,7 @@ const projects = [
         <div class="status">{project.status}</div>
         <h2>{project.title}</h2>
         <p>{project.summary}</p>
-        <p><strong>Why it matters:</strong> {project.why}</p>
+        <p>{project.aims}</p>
         <div class="tag-list">
           {project.links.map((link) => (
             <span class="tag">{link}</span>

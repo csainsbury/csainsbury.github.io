@@ -20,7 +20,6 @@ The production build writes static files to `dist/`.
 - `/` — homepage
 - `/projects/` — project cards
 - `/outputs/` — selected outputs
-- `/about/` — short bio and links
 
 ## Styling
 
