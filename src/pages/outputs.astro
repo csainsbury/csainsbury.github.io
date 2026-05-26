@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const papers = [
+  {
+    title: 'ASCENDgpt',
+    summary: 'Phenotype-aware encoder for cardiovascular risk prediction.',
+  },
+  {
+    title: 'FlatASCEND',
+    summary: 'Autoregressive clinical sequence model with continuous time prediction and pharmacological association testing.',
+  },
+  {
+    title: 'FlatASCEND SAE interpretability',
+    summary: 'Sparse autoencoders applied to an EHR foundation model for interpretability and intervention analysis.',
+  },
+  {
+    title: 'ORCA',
+    summary: 'Working paper on language-like structure, translation, and generation in tokenised EHR sequences.',
+  },
+];
+
+const software = [
+  'NEXUS scientific-discovery system',
+  'pi / cog project and synthesis workflows',
+  'Research workflow tooling for source ingest, synthesis, and project state',
+];
+
+const talks = [
+  'Selected invited talks and project presentations — to be curated',
+];
+---
+
+<Layout title="Outputs — Chris Sainsbury" currentPath="/outputs">
+  <section class="page-header copy">
+    <div class="eyebrow">outputs</div>
+    <h1>Selected outputs</h1>
+    <p class="lead">
+      A curated view of papers, software, and related work. This is intentionally selective rather
+      than a complete publication archive.
+    </p>
+  </section>
+
+  <section class="grid two">
+    <div class="panel section">
+      <h2>Papers and writing</h2>
+      <div class="list">
+        {papers.map((paper) => (
+          <div class="list-item">
+            <h3>{paper.title}</h3>
+            <p>{paper.summary}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="panel section">
+        <h2>Software and infrastructure</h2>
+        <div class="tag-list">
+          {software.map((item) => (
+            <span class="tag">{item}</span>
+          ))}
+        </div>
+      </div>
+
+      <div class="panel section">
+        <h2>Talks</h2>
+        <div class="list">
+          {talks.map((item) => (
+            <div class="list-item">
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

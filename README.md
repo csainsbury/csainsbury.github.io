@@ -1,46 +1,40 @@
-# Astro Starter Kit: Basics
+# sainsbury.ai
+
+Astro static site for the `sainsbury.ai` public front page.
+
+Status: prepared for GitHub Pages deployment. DNS for `sainsbury.ai` is not connected from this repo yet.
+
+## Commands
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The production build writes static files to `dist/`.
 
-## 🚀 Project Structure
+## Current pages
 
-Inside of your Astro project, you'll see the following folders and files:
+- `/` — homepage
+- `/projects/` — project cards
+- `/outputs/` — selected outputs
+- `/about/` — short bio and links
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## Styling
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+The main visual system is incorporated into `src/styles/global.css`, with a small Astro composition layer appended for the current page structure.
 
-## 🧞 Commands
+## Deployment
 
-All commands are run from the root of the project, from a terminal:
+This repo includes a GitHub Actions workflow at `.github/workflows/deploy.yml` that builds the Astro site and deploys `dist/` to GitHub Pages from the `main` branch.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Recommended initial host repo: `csainsbury/csainsbury.github.io`, so the site works at the root GitHub Pages URL before the custom domain is connected.
 
-## 👀 Want to learn more?
+## Before custom-domain launch
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- review all wording for public safety and current status
+- decide final public email/contact links
+- connect DNS for `sainsbury.ai`
+- when DNS is ready, add `public/CNAME` containing `sainsbury.ai` and rebuild/deploy

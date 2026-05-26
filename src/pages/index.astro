@@ -1,11 +1,174 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const featuredProjects = [
+  {
+    title: 'Phenotype fingerprinting',
+    status: 'Translational research thread',
+    summary:
+      'Using clinical sequence models to identify rare, under-recognised, or hard-to-characterise disease patterns.',
+    href: '/projects#phenotype-fingerprinting',
+  },
+  {
+    title: 'ORCA',
+    status: 'Research programme',
+    summary:
+      'Treating electronic health records as a language, with implications for representation, translation, and generation.',
+    href: '/projects#orca',
+  },
+  {
+    title: 'NEXUS',
+    status: 'Scientific-discovery system',
+    summary:
+      'Predicting cross-domain method transfer by learning from historical discoveries and validated transfers.',
+    href: '/projects#nexus',
+  },
+  {
+    title: 'ASCEND research arc',
+    status: 'Programme-level research thread',
+    summary:
+      'A linked sequence of work spanning ASCENDgpt, FlatASCEND, and ORCA.',
+    href: '/projects#ascend',
+  },
+  {
+    title: 'glucose.ai',
+    status: 'Public-facing project',
+    summary:
+      'A literature intelligence and discovery surface for diabetes and AI/ML work.',
+    href: '/projects#glucose-ai',
+  },
+  {
+    title: 'pi / cog workflows',
+    status: 'Research infrastructure',
+    summary:
+      'Tools and workflows for keeping projects, sources, tasks, and synthesis organised in a usable working system.',
+    href: '/projects#pi-cog',
+  },
+];
+
+const outputs = [
+  {
+    title: 'ASCENDgpt',
+    type: 'Paper',
+    summary: 'Phenotype-aware encoder for cardiovascular risk prediction.',
+  },
+  {
+    title: 'FlatASCEND',
+    type: 'Paper / preprint track',
+    summary: 'Autoregressive clinical sequence modelling with pharmacological association testing.',
+  },
+  {
+    title: 'FlatASCEND SAE interpretability',
+    type: 'Paper / preprint track',
+    summary: 'Sparse autoencoders for interpreting an EHR foundation model.',
+  },
+  {
+    title: 'ORCA',
+    type: 'Working paper',
+    summary: 'Language-like structure in EHR sequences, including translation and generative consequences.',
+  },
+];
+
+const themes = [
+  'Clinical foundation models',
+  'EHR representation learning',
+  'Mechanistic interpretability',
+  'Translational AI in medicine',
+  'Scientific discovery systems',
+  'Research software and agent workflows',
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout currentPath="/">
+  <section class="hero">
+    <div class="panel hero-copy">
+      <div class="eyebrow"><span class="dot"></span>Clinical AI · EHR representation · research software</div>
+      <h1 class="hero-title">Chris Sainsbury</h1>
+      <p class="lead">
+        Clinician-researcher working on clinical foundation models, EHR representation learning,
+        translational AI, and research software.
+      </p>
+      <p>
+        I work across medicine, machine learning, and research infrastructure. This site is a public
+        front page for the main things I am working on: active projects, recent outputs, papers,
+        software, and current directions.
+      </p>
+      <p class="profile-note">
+        GitHub profile shorthand: data analysis in diabetes · machine learning · sailing.
+      </p>
+
+      <div class="button-row">
+        <a class="button primary" href="/projects">View projects</a>
+        <a class="button" href="/outputs">Recent outputs</a>
+        <a class="button" href="/about">About</a>
+      </div>
+    </div>
+
+    <aside class="panel hero-side stack">
+      <div class="metric">
+        <strong>Based in</strong>
+        <span class="muted">Glasgow</span>
+      </div>
+      <div class="metric">
+        <strong>Public links</strong>
+        <span class="muted">glucose.ai · ORCID available · GitHub profile live</span>
+      </div>
+      <div class="metric">
+        <strong>Current emphasis</strong>
+        <span class="muted">Clinical sequence models, translational projects, and research infrastructure.</span>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section panel">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">featured projects</div>
+        <h2>Main threads of work</h2>
+      </div>
+      <a href="/projects">See all projects</a>
+    </div>
+
+    <div class="grid two">
+      {featuredProjects.map((project) => (
+        <article class="card panel">
+          <div class="status">{project.status}</div>
+          <h3>{project.title}</h3>
+          <p>{project.summary}</p>
+          <p><a href={project.href}>Read more</a></p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="grid two" style="margin-top: 1rem;">
+    <div class="section panel">
+      <div class="eyebrow">recent outputs</div>
+      <h2>Selected papers and writing</h2>
+      <div class="list">
+        {outputs.map((item) => (
+          <div class="list-item">
+            <div class="status">{item.type}</div>
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="section panel">
+      <div class="eyebrow">areas of work</div>
+      <h2>What connects the portfolio</h2>
+      <p class="copy">
+        The portfolio spans academic papers, translational grants, scientific-discovery systems, and
+        software for organising research. The aim is not just to build models, but to make them
+        clinically meaningful and operationally usable.
+      </p>
+      <div class="tag-list">
+        {themes.map((theme) => (
+          <span class="tag">{theme}</span>
+        ))}
+      </div>
+    </div>
+  </section>
 </Layout>

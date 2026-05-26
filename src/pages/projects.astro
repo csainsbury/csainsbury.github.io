@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    id: 'phenotype-fingerprinting',
+    title: 'Phenotype fingerprinting',
+    status: 'Translational research thread',
+    summary:
+      'A line of work using clinical sequence models to identify rare, under-recognised, or hard-to-characterise disease patterns.',
+    why: 'Brings foundation-model methods into clinically specific translational settings where conventional labels may be incomplete or delayed.',
+    links: ['Clinical sequence modelling', 'Rare-case and under-recognised phenotype discovery'],
+  },
+  {
+    id: 'orca',
+    title: 'ORCA',
+    status: 'Research programme',
+    summary:
+      'A programme built around the idea that electronic health records can be treated as a language, with implications for representation, translation, and generation.',
+    why: 'Provides a larger conceptual frame for EHR modelling, not just another benchmark model.',
+    links: ['Working paper in progress', 'Language-of-EHR framing'],
+  },
+  {
+    id: 'nexus',
+    title: 'NEXUS',
+    status: 'Scientific-discovery system',
+    summary:
+      'A system for predicting cross-domain scientific method transfer using historical discoveries and validated transfers.',
+    why: 'Extends the portfolio beyond medicine into a broader discovery and method-transfer problem.',
+    links: ['Methods whitepaper in draft', 'Discovery-system thread'],
+  },
+  {
+    id: 'ascend',
+    title: 'ASCEND research arc',
+    status: 'Programme-level thread',
+    summary:
+      'A broader research arc spanning ASCENDgpt, FlatASCEND, and ORCA, focused on modelling structured clinical trajectories.',
+    why: 'Shows continuity and coherence across several papers rather than isolated outputs.',
+    links: ['ASCENDgpt', 'FlatASCEND', 'ORCA'],
+  },
+  {
+    id: 'glucose-ai',
+    title: 'glucose.ai',
+    status: 'Public-facing project',
+    summary:
+      'A literature intelligence and discovery surface for diabetes and AI / machine learning work.',
+    why: 'Shows a more outward-facing, usable layer of the portfolio beyond papers and grants.',
+    links: ['Public website', 'Diabetes + AI / ML discovery'],
+  },
+  {
+    id: 'mwdh',
+    title: 'MyWay Digital Health work',
+    status: 'Applied / translational thread',
+    summary:
+      'Clinical and research work connected to digital health, outcomes analysis, governance, and translational implementation.',
+    why: 'Keeps the site from looking purely academic and reflects live operational and translational work.',
+    links: ['Outcomes analysis', 'Governance and implementation'],
+  },
+  {
+    id: 'pi-cog',
+    title: 'pi / cog workflows',
+    status: 'Research infrastructure',
+    summary:
+      'Research and coding infrastructure for organising sources, tasks, synthesis, and project state in a more usable system.',
+    why: 'Makes the work itself easier to run, track, and expose coherently across projects.',
+    links: ['Infrastructure and workflow notes', 'Agent workflow systems'],
+  },
+];
+---
+
+<Layout title="Projects — Chris Sainsbury" currentPath="/projects">
+  <section class="page-header copy">
+    <div class="eyebrow">projects</div>
+    <h1>Active threads of work</h1>
+    <p class="lead">
+      A small set of the main projects and programmes currently shaping the portfolio, spanning academic research, translational work, public-facing tools, and research infrastructure.
+    </p>
+  </section>
+
+  <section class="grid two">
+    {projects.map((project) => (
+      <article class="panel card" id={project.id}>
+        <div class="status">{project.status}</div>
+        <h2>{project.title}</h2>
+        <p>{project.summary}</p>
+        <p><strong>Why it matters:</strong> {project.why}</p>
+        <div class="tag-list">
+          {project.links.map((link) => (
+            <span class="tag">{link}</span>
+          ))}
+        </div>
+      </article>
+    ))}
+  </section>
+</Layout>
