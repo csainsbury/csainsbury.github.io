@@ -2,7 +2,7 @@
 
 Astro static site for the `sainsbury.ai` public front page.
 
-Status: prepared for GitHub Pages deployment. DNS for `sainsbury.ai` is not connected from this repo yet.
+Status: deployed to GitHub Pages at <https://csainsbury.github.io/>. DNS for `sainsbury.ai` is not connected from this repo yet.
 
 ## Commands
 
