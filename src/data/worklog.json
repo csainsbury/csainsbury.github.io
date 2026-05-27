@@ -3,15 +3,22 @@
   "items": [
     {
       "date": "2026-05-26",
-      "title": "sainsbury.ai first public version",
-      "summary": "Launched the first bare-bones version of sainsbury.ai as a static GitHub Pages site, connected the custom domain, and shaped the initial public pages for projects and outputs.",
+      "title": "Public website launch and clinical-sequence modelling tooling",
+      "summary": "Launched the first public version of sainsbury.ai and made a concentrated pass across clinical-sequence modelling infrastructure, public research profile plumbing, and the Cog/Nightshift work-log system.",
       "items": [
-        "Set up the Astro static site and GitHub Pages deployment workflow.",
-        "Connected sainsbury.ai with HTTPS and Proton-backed public email.",
-        "Seeded the outputs page from the public Google Scholar profile.",
-        "Added a lightweight monthly publication-update check that opens a review issue rather than auto-publishing changes."
+        "Built and deployed the first sainsbury.ai static site on GitHub Pages, connected the custom domain, enabled HTTPS, and added the initial Projects, Outputs, and Work log pages.",
+        "Seeded the Outputs page from the public Google Scholar profile and added a review-only monthly check for publication updates.",
+        "Advanced open clinical-sequence modelling tooling with several synthetic-test scaffolds and evaluation harness improvements for horizon specification, autoregressive latent prediction, and future-summary readouts.",
+        "Captured a new modelling direction around probabilistic EHR belief states: treating records as partial observations of an evolving latent clinical state rather than as fixed snapshots.",
+        "Added an internal cross-project Cog work-log generator so daily progress can be reviewed chronologically while keeping public updates curated and safe."
       ],
-      "tags": ["website", "github-pages", "outputs", "public-profile"]
+      "tags": [
+        "website",
+        "clinical-sequence-modelling",
+        "research-tooling",
+        "cog",
+        "work-log"
+      ]
     }
   ]
 }
