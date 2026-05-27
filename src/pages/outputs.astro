@@ -5,9 +5,41 @@ import publicationsData from '../data/publications.json';
 const papers = publicationsData.items;
 
 const software = [
-  'NEXUS scientific-discovery system',
-  'pi / cog project and synthesis workflows',
-  'Research workflow tooling for source ingest, synthesis, and project state',
+  {
+    title: 'trial-emulation',
+    status: 'PyPI package',
+    description:
+      'A Python package for target trial emulation and causal analysis of observational time-to-event data, ported from the TrialEmulation R package. It supports person-time / nested-trial workflows and marginal structural model analyses for research using routinely collected health data.',
+    links: [
+      { label: 'PyPI', href: 'https://pypi.org/project/trial-emulation/' },
+      { label: 'GitHub', href: 'https://github.com/csainsbury/Trial-Emulation-R2P' },
+    ],
+    tags: ['target trial emulation', 'causal inference', 'time-to-event data', 'Python'],
+  },
+  {
+    title: 'NEXUS scientific-discovery system',
+    status: 'Research prototype',
+    description:
+      'An experimental system for reasoning about cross-domain method transfer: where a technique, representation, or design pattern from one field might plausibly unlock progress in another. The emphasis is on grounded discovery support rather than generic brainstorming.',
+    links: [],
+    tags: ['method transfer', 'scientific discovery', 'research intelligence'],
+  },
+  {
+    title: 'pi / cog project and synthesis workflows',
+    status: 'Research infrastructure',
+    description:
+      'A local knowledge and agent-workflow environment for keeping sources, tasks, synthesis pages, ideas, daily context, and project state connected. It is designed to make long-running research threads easier to resume, review, and develop over time.',
+    links: [],
+    tags: ['project memory', 'synthesis', 'agent workflows'],
+  },
+  {
+    title: 'Source-ingest and project-state tooling',
+    status: 'Workflow tooling',
+    description:
+      'Small scripts and routines for ingesting papers or transcripts, searching the maintained wiki, drafting task candidates, refreshing daily views, reviewing public-site updates, and preserving chronological work logs from Cog activity.',
+    links: [],
+    tags: ['source ingest', 'task extraction', 'daily review', 'work logs'],
+  },
 ];
 ---
 
@@ -46,9 +78,29 @@ const software = [
     <aside class="stack">
       <div class="panel section">
         <h2>Software and infrastructure</h2>
-        <div class="tag-list">
+        <div class="list software-list">
           {software.map((item) => (
-            <span class="tag">{item}</span>
+            <article class="list-item software-item">
+              <div class="publication-meta">
+                <span class="status">{item.status}</span>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              {item.links.length > 0 && (
+                <div class="tag-list">
+                  {item.links.map((link) => (
+                    <a class="tag" href={link.href} target="_blank" rel="noreferrer">
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+              <div class="tag-list">
+                {item.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>
