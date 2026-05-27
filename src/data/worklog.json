@@ -2,6 +2,22 @@
   "description": "Curated public work log entries for sainsbury.ai. Keep entries public-safe and high level; do not include private task state, raw clinical details, inbox content, or collaborator-sensitive material.",
   "items": [
     {
+      "date": "2026-05-27",
+      "title": "Semi-automatic public work-log workflow",
+      "summary": "Tested the bridge from Cog's internal chronological logs to a curated public work-log, with review gates to keep public updates safe.",
+      "items": [
+        "Fixed after-midnight Nightshift date handling so overnight runs summarize the day that just ended.",
+        "Added a guarded local helper for applying public-safe work-log drafts to the site data.",
+        "Published and browser-tested the first curated work-log entry on sainsbury.ai."
+      ],
+      "tags": [
+        "website",
+        "cog",
+        "nightshift",
+        "work-log"
+      ]
+    },
+    {
       "date": "2026-05-26",
       "title": "Public website launch and clinical-sequence modelling tooling",
       "summary": "Launched the first public version of sainsbury.ai and made a concentrated pass across clinical-sequence modelling infrastructure, public research profile plumbing, and the Cog/Nightshift work-log system.",
@@ -18,6 +34,74 @@
         "research-tooling",
         "cog",
         "work-log"
+      ]
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Clinical-JEPA evaluation gates and remote-compute supervision",
+      "summary": "Focused on clinical-sequence modelling infrastructure: prior-art framing, autoregression gates, target-horizon checks, and safer remote-compute lifecycle tooling.",
+      "items": [
+        "Ingested and framed Clinical-JEPA prior art and related control-grid ideas.",
+        "Built and reviewed successive autoregression and horizon-specification gates for clinical-sequence modelling work.",
+        "Designed and smoke-tested a remote GPU lifecycle supervisor for safer launch/sync/destroy workflows.",
+        "Reviewed the modelling path forward and shifted toward a clearer target-window/horizon redesign."
+      ],
+      "tags": [
+        "clinical-sequence-modelling",
+        "jepa",
+        "evaluation",
+        "remote-compute",
+        "research-tooling"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "title": "Scout infrastructure and literature retrieval bridges",
+      "summary": "Expanded Cog's scout-wave infrastructure with literature-retrieval bridges, route-memory reporting, and status/blueprint workflow surfaces.",
+      "items": [
+        "Added and iterated OpenAlex search/hydration bridges for scout waves and broader literature recall.",
+        "Connected glucose.ai literature radar into Cog's domain-specific research-query workflow.",
+        "Developed blueprint/status workflow surfaces for tracking autonomous or long-running research threads.",
+        "Ran JEPA scout-wave retests to diagnose and improve literature retrieval behaviour."
+      ],
+      "tags": [
+        "cog",
+        "scout-waves",
+        "openalex",
+        "glucoseai",
+        "literature-infrastructure"
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "title": "Literature radar and Clinical-JEPA framing",
+      "summary": "Built out literature-radar memory around curated papers and used it to sharpen a Clinical-JEPA disease-fingerprinting research direction.",
+      "items": [
+        "Added a Paperpile literature-radar bridge so curated papers can better inform project planning and recall.",
+        "Synthesised latent disease fingerprinting with Clinical-JEPA as a clearer research thread.",
+        "Ingested a JEPA/autoregression paper batch into the maintained knowledge base for later modelling and writing work."
+      ],
+      "tags": [
+        "literature-radar",
+        "clinical-sequence-modelling",
+        "jepa",
+        "research-framing"
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Cog architecture cleanup and open-source workflow watchlist",
+      "summary": "Refined Cog's project memory and reviewed external/open-source agent workflow ideas that might be useful for local research infrastructure.",
+      "items": [
+        "Updated the open-source project watchlist and sweep notes for agent/workflow systems worth monitoring.",
+        "Cleaned Cog architecture/state surfaces so sources, tasks, synthesis, and workflow memory remain easier to navigate.",
+        "Kept sensitive planning material out of the public work-log surface while preserving internal continuity in Cog."
+      ],
+      "tags": [
+        "cog",
+        "research-infrastructure",
+        "open-source",
+        "workflow-design"
       ]
     }
   ]
