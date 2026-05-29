@@ -3,18 +3,18 @@
   "items": [
     {
       "date": "2026-05-27",
-      "title": "Semi-automatic public work-log workflow",
-      "summary": "Tested the bridge from Cog's internal chronological logs to a curated public work-log, with review gates to keep public updates safe.",
+      "title": "Public work-log workflow and site updates",
+      "summary": "Refined the public site workflow around sainsbury.ai, including a curated work-log page and clearer outputs/project presentation.",
       "items": [
-        "Fixed after-midnight Nightshift date handling so overnight runs summarize the day that just ended.",
-        "Added a guarded local helper for applying public-safe work-log drafts to the site data.",
-        "Published and browser-tested the first curated work-log entry on sainsbury.ai."
+        "Published and browser-tested a curated public work-log backfill for recent website and research-infrastructure updates.",
+        "Tightened public projects/output headings and expanded the software/infrastructure outputs panel.",
+        "Improved the guarded local path from internal Cog logs to public-safe work-log candidates."
       ],
       "tags": [
         "website",
         "cog",
-        "nightshift",
-        "work-log"
+        "work-log",
+        "outputs"
       ]
     },
     {
