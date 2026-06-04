@@ -4,14 +4,17 @@
     {
       "date": "2026-06-04",
       "title": "Public site and work-log maintenance",
-      "summary": "Updated or reviewed public-facing sainsbury.ai surfaces using maintained local Cog records.",
+      "summary": "Updated public-facing sainsbury.ai surfaces and strengthened the daily review path for keeping the site current.",
       "items": [
-        "Hardened sainsbury.ai daily maintenance loop."
+        "Hardened the daily sainsbury.ai maintenance loop so public work-log and project-list freshness are checked explicitly.",
+        "Restructured the Projects page around clinical sequence modelling, scientific discovery systems, and research infrastructure.",
+        "Refined NEXUS as a knowledge exploration system and added Physarum as a research route-mapping tool."
       ],
       "tags": [
         "projects",
         "website",
-        "work-log"
+        "work-log",
+        "scientific-discovery"
       ]
     },
     {
