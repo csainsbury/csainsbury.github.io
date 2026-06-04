@@ -8,7 +8,7 @@
       "items": [
         "Hardened the daily sainsbury.ai maintenance loop so public work-log and project-list freshness are checked explicitly.",
         "Restructured the Projects page around clinical sequence modelling, scientific discovery systems, and research infrastructure.",
-        "Refined NEXUS as a knowledge exploration system and added Physarum as a research route-mapping tool."
+        "Refined NEXUS as a knowledge exploration system and updated Physarum to match the current route-card, route-aware-filament, review-packet, and physarum-return workflow."
       ],
       "tags": [
         "projects",
