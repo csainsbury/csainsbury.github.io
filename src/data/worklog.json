@@ -2,6 +2,19 @@
   "description": "Curated public work log entries for sainsbury.ai. Keep entries public-safe and high level; do not include private task state, raw clinical details, inbox content, or collaborator-sensitive material.",
   "items": [
     {
+      "date": "2026-06-04",
+      "title": "Public site and work-log maintenance",
+      "summary": "Updated or reviewed public-facing sainsbury.ai surfaces using maintained local Cog records.",
+      "items": [
+        "Hardened sainsbury.ai daily maintenance loop."
+      ],
+      "tags": [
+        "projects",
+        "website",
+        "work-log"
+      ]
+    },
+    {
       "date": "2026-05-27",
       "title": "Public work-log workflow and site updates",
       "summary": "Refined the public site workflow around sainsbury.ai, including a curated work-log page and clearer outputs/project presentation.",
