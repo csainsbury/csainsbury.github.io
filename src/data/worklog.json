@@ -3,18 +3,20 @@
   "items": [
     {
       "date": "2026-06-04",
-      "title": "Public site and work-log maintenance",
-      "summary": "Updated public-facing sainsbury.ai surfaces and strengthened the daily review path for keeping the site current.",
+      "title": "Cross-project research and infrastructure progress",
+      "summary": "A public-safe snapshot of useful work across research strategy, scientific-discovery tooling, and public portfolio infrastructure.",
       "items": [
-        "Hardened the daily sainsbury.ai maintenance loop so public work-log and project-list freshness are checked explicitly.",
+        "Synthesised public University of Glasgow strategy material into a portfolio-alignment memo for research quality, international profile, translation, and responsible AI/data themes.",
         "Restructured the Projects page around clinical sequence modelling, scientific discovery systems, and research infrastructure.",
-        "Refined NEXUS as a knowledge exploration system and updated Physarum to match the current route-card, route-aware-filament, review-packet, and physarum-return workflow."
+        "Refined NEXUS as a knowledge exploration system and updated Physarum to match the current route-card, route-aware-filament, review-packet, and physarum-return workflow.",
+        "Hardened the daily public work-log process so future entries describe cross-project progress rather than only website maintenance."
       ],
       "tags": [
+        "research-strategy",
+        "scientific-discovery",
         "projects",
         "website",
-        "work-log",
-        "scientific-discovery"
+        "work-log"
       ]
     },
     {
