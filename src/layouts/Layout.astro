@@ -5,12 +5,14 @@ interface Props {
   title?: string;
   description?: string;
   currentPath?: string;
+  hideNavigation?: boolean;
 }
 
 const {
   title = 'Chris Sainsbury — sainsbury.ai',
   description = 'Clinician-researcher working on clinical foundation models, EHR representation learning, translational AI, and research software.',
   currentPath = '/',
+  hideNavigation = false,
 } = Astro.props;
 
 const nav = [
@@ -41,17 +43,21 @@ const nav = [
             <span>sainsbury.ai</span>
           </a>
 
-          <nav class="app-nav" aria-label="Main navigation">
-            {nav.map((item) => (
-              <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
-            ))}
-          </nav>
+          {!hideNavigation && (
+            <>
+              <nav class="app-nav" aria-label="Main navigation">
+                {nav.map((item) => (
+                  <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+                ))}
+              </nav>
 
-          <nav class="app-nav app-nav--external" aria-label="External links">
-            <a href="https://glucose.ai" target="_blank" rel="noreferrer">glucose.ai</a>
-            <a href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="mailto:chris@sainsbury.ai">Email</a>
-          </nav>
+              <nav class="app-nav app-nav--external" aria-label="External links">
+                <a href="https://glucose.ai" target="_blank" rel="noreferrer">glucose.ai</a>
+                <a href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="mailto:chris@sainsbury.ai">Email</a>
+              </nav>
+            </>
+          )}
         </div>
       </header>
 
