@@ -20,6 +20,7 @@ The production build writes static files to `dist/`.
 - `/` — homepage
 - `/projects/` — project cards
 - `/outputs/` — selected outputs
+- `/agenda/` — TRANsCEnD-CPRD Glasgow kick-off agenda
 
 ## Styling
 
