@@ -38,10 +38,17 @@ const nav = [
     <div class="site-shell">
       <header class="app-bar">
         <div class="app-bar__inner">
-          <a href="/" class="brand" aria-label="sainsbury.ai home">
-            <span class="brand__mark">CS</span>
-            <span>sainsbury.ai</span>
-          </a>
+          {hideNavigation ? (
+            <div class="brand" aria-label="sainsbury.ai">
+              <span class="brand__mark">CS</span>
+              <span>sainsbury.ai</span>
+            </div>
+          ) : (
+            <a href="/" class="brand" aria-label="sainsbury.ai home">
+              <span class="brand__mark">CS</span>
+              <span>sainsbury.ai</span>
+            </a>
+          )}
 
           {!hideNavigation && (
             <>
