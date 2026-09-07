@@ -1,53 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import publicationsData from '../data/publications.json';
+import portfolio from '../data/portfolio.json';
+import ProjectCard from '../components/ProjectCard.astro';
 
-const featuredProjects = [
-  {
-    title: 'Phenotype fingerprinting',
-    status: 'Translational research thread',
-    summary:
-      'Using clinical sequence models to identify rare, under-recognised, or hard-to-characterise disease patterns.',
-    href: '/projects#phenotype-fingerprinting',
-  },
-  {
-    title: 'ORCA',
-    status: 'Research programme',
-    summary:
-      'Treating electronic health records as a language, with implications for representation, translation, and generation.',
-    href: '/projects#orca',
-  },
-  {
-    title: 'NEXUS',
-    status: 'Knowledge exploration system',
-    summary:
-      'Identifying where scientific ideas, methods, and representations might transfer across fields.',
-    href: '/projects#nexus',
-  },
-  {
-    title: 'ASCEND research arc',
-    status: 'Programme-level research thread',
-    summary:
-      'A linked sequence of work spanning ASCENDgpt, FlatASCEND, and ORCA.',
-    href: '/projects#ascend',
-  },
-  {
-    title: 'glucose.ai',
-    status: 'Public-facing project',
-    summary:
-      'A literature intelligence and discovery surface for diabetes and AI/ML work.',
-    href: '/projects#glucose-ai',
-  },
-  {
-    title: 'pi / Cog workflows',
-    status: 'Research infrastructure',
-    summary:
-      'Tools and workflows for keeping projects, sources, experiments, and synthesis organised in a usable working system.',
-    href: '/projects#pi-cog',
-  },
-];
-
-const recentOutputs = publicationsData.items.slice(0, 5);
+const featuredProjects = portfolio.sections.flatMap((section) => section.projects).filter((project) => project.featured);
+const milestones = [...portfolio.milestones].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
+const dateLabel = (date: string) => new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+}).format(new Date(`${date}T00:00:00Z`));
+const recentOutputs = publicationsData.items.slice(0, 3);
 
 const themes = [
   'Clinical foundation models',
@@ -73,9 +35,6 @@ const themes = [
         front page for the main things I am working on: active projects, recent outputs, papers,
         software, and current directions.
       </p>
-      <p class="profile-note">
-        GitHub profile shorthand: data analysis in diabetes · machine learning · sailing.
-      </p>
 
       <div class="button-row">
         <a class="button primary" href="/projects">View projects</a>
@@ -92,25 +51,45 @@ const themes = [
           <a class="tag" href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
-      <div class="metric">
-        <strong>Current emphasis</strong>
-        <span class="muted">Clinical sequence models, translational projects, and research infrastructure.</span>
-      </div>
+      <section class="metric" aria-labelledby="now-heading">
+        <div class="eyebrow">Now</div>
+        <h2 id="now-heading">Currently working on</h2>
+        <p>{portfolio.now.text}</p>
+        {portfolio.now.updated && <p class="small muted">Updated <time datetime={portfolio.now.updated}>{dateLabel(portfolio.now.updated)}</time></p>}
+      </section>
     </aside>
   </section>
 
-  <section class="section panel">
+  <section class="section" aria-labelledby="featured-heading">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Selected work</div>
+        <h2 id="featured-heading">Featured projects</h2>
+        <p>The questions behind the work, with milestones linked to public outputs.</p>
+      </div>
+      <a href="/projects">All projects →</a>
+    </div>
     <div class="grid two">
-      {featuredProjects.map((project) => (
-        <article class="card panel">
-          <div class="status">{project.status}</div>
-          <h3>{project.title}</h3>
-          <p>{project.summary}</p>
-          <p><a href={project.href}>Read more</a></p>
-        </article>
-      ))}
+      {featuredProjects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
+
+  {milestones.length > 0 && (
+    <section class="section panel" aria-labelledby="developments-heading">
+      <div class="eyebrow">Papers · software · public outputs</div>
+      <h2 id="developments-heading">Public milestones</h2>
+      <p class="muted">Selected developments, dated when the work became public. Preprints are work in progress, not peer-reviewed findings.</p>
+      <div class="list">
+        {milestones.map((milestone) => (
+          <article class="list-item">
+            <div class="small muted"><time datetime={milestone.date}>{dateLabel(milestone.date)}</time> · {milestone.kind}</div>
+            <h3><a href={milestone.href}>{milestone.title}</a></h3>
+            <p>{milestone.summary}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="grid two" style="margin-top: 1rem;">
     <div class="section panel">

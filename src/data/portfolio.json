@@ -1,0 +1,109 @@
+{
+  "now": {
+    "text": "My work connects clinical sequence modelling, tools for scientific discovery, and research software. The common aim is to make complex evidence more useful for medical research.",
+    "updated": null
+  },
+  "sections": [
+    {
+      "title": "Clinical sequence modelling",
+      "description": "Understanding patterns in electronic health records and their value for medical research.",
+      "projects": [
+        {
+          "id": "ascend",
+          "title": "ASCEND research arc",
+          "summary": "Modelling clinical trajectories to study risk, patterns of disease, and how clinical models can be interpreted.",
+          "stage": null,
+          "featured": true,
+          "href": "https://arxiv.org/abs/2605.04072",
+          "linkLabel": "Read the interpretability preprint"
+        },
+        {
+          "id": "orca",
+          "title": "ORCA",
+          "summary": "Studying electronic health records as a language, with the aim of making clinical sequences easier to interpret and compare.",
+          "stage": null,
+          "featured": false,
+          "href": null,
+          "linkLabel": null
+        },
+        {
+          "id": "phenotype-fingerprinting",
+          "title": "Phenotype fingerprinting",
+          "summary": "Exploring how patterns in clinical records could help characterise under-recognised disease.",
+          "stage": null,
+          "featured": false,
+          "href": null,
+          "linkLabel": null
+        }
+      ]
+    },
+    {
+      "title": "Scientific discovery systems",
+      "description": "Making scientific literature and possible research directions easier to explore.",
+      "projects": [
+        {
+          "id": "nexus",
+          "title": "NEXUS",
+          "summary": "Investigating where ideas and methods from one field might help solve problems in another.",
+          "stage": null,
+          "featured": true,
+          "href": null,
+          "linkLabel": null
+        },
+        {
+          "id": "physarum",
+          "title": "Physarum",
+          "summary": "Tools for comparing possible research directions and supporting scientific judgement.",
+          "stage": null,
+          "featured": false,
+          "href": null,
+          "linkLabel": null
+        },
+        {
+          "id": "glucose-ai",
+          "title": "glucose.ai",
+          "summary": "A public literature-discovery site connecting diabetes research with developments in AI and machine learning.",
+          "stage": "Public release",
+          "featured": true,
+          "href": "https://glucose.ai",
+          "linkLabel": "Explore glucose.ai"
+        }
+      ]
+    },
+    {
+      "title": "Research software",
+      "description": "Software that helps research remain connected and usable over time.",
+      "projects": [
+        {
+          "id": "pi-cog",
+          "title": "pi / Cog workflows",
+          "summary": "Tools for connecting research sources, experiments and synthesis, so useful work is easier to organise and revisit.",
+          "stage": null,
+          "featured": true,
+          "href": null,
+          "linkLabel": null
+        }
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "clinical-sequence-interpretability-preprint",
+      "projectId": "ascend",
+      "date": "2026-04-13",
+      "kind": "Preprint",
+      "title": "Interpreting clinical sequence models",
+      "summary": "A preprint on sparse autoencoder analysis of clinical sequence model representations is available on arXiv.",
+      "href": "https://arxiv.org/abs/2605.04072"
+    },
+    {
+      "id": "ascendgpt-preprint",
+      "projectId": "ascend",
+      "date": "2025-08-31",
+      "kind": "Preprint",
+      "title": "ASCENDgpt preprint",
+      "summary": "A preprint on phenotype-aware cardiovascular risk prediction from electronic health records is available on arXiv.",
+      "href": "https://arxiv.org/abs/2509.04485"
+    }
+  ]
+}

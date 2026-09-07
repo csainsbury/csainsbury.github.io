@@ -1,0 +1,38 @@
+---
+import portfolio from '../data/portfolio.json';
+
+interface Props {
+  project: (typeof portfolio.sections)[number]['projects'][number];
+  detail?: boolean;
+}
+
+const { project, detail = false } = Astro.props;
+const milestone = portfolio.milestones
+  .filter((item) => item.projectId === project.id)
+  .sort((a, b) => b.date.localeCompare(a.date))[0];
+const dateLabel = (date: string) => new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+}).format(new Date(`${date}T00:00:00Z`));
+---
+
+<article class="panel card" id={detail ? project.id : undefined}>
+  {project.stage && <div class="status">{project.stage}</div>}
+  <h3>{project.title}</h3>
+  <p>{project.summary}</p>
+  {milestone && (
+    <div class="project-milestone">
+      <span class="small muted">Latest public milestone · <time datetime={milestone.date}>{dateLabel(milestone.date)}</time></span>
+      <p><a href={milestone.href}>{milestone.title}</a> <span class="small muted">({milestone.kind.toLowerCase()})</span></p>
+    </div>
+  )}
+  {detail ? (
+    project.href && <p><a href={project.href}>{project.linkLabel}</a></p>
+  ) : (
+    <p><a href={`/projects#${project.id}`}>About {project.title}</a></p>
+  )}
+</article>
+
+<style>
+  .project-milestone { border-top: 1px solid var(--line); padding-top: 0.9rem; margin-top: 1rem; }
+  .project-milestone p { margin-top: 0.3rem; }
+</style>
