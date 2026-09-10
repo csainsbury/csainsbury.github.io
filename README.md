@@ -32,7 +32,7 @@ The production build writes static files to `dist/`.
 
 `ProjectCard.astro` renders consistent project copy and the latest public milestone on both pages. The homepage displays at most five milestones, newest first. The introduction remains stable.
 
-Daily review happens outside this public repository in Cog. It consumes explicitly selected public/sanitised proposals and produces a **local draft only**. Narrative approval and deployment are separate human-authorised steps; no scheduled site edits or auto-publishing. Do not commit private evidence, draft queues or internal research notes here.
+Daily review runs in Cog and checks selected public profiles/primary output sources plus explicitly selected sanitised updates. Since 10 September 2026, meaningful, evidence-backed, public-safe portfolio updates are automatically built, tested and published under standing authorisation. No change means no deploy or date bump. Uncertain facts/disclosure cases are withheld. The automatic publisher may change only `src/data/portfolio.json`; it cannot add new project identities or alter code, layout, settings or unrelated local files. Do not commit private evidence, review packets or internal research notes here.
 
 Public copy should explain the purpose and supported milestone, not unpublished hypotheses, distinctive methods, experimental recipes, preliminary metrics, sensitive collaborators/data or grant strategy. A stage is not a clinical-readiness or completion claim.
 
