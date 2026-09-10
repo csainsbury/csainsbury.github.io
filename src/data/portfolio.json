@@ -104,6 +104,15 @@
       "title": "ASCENDgpt preprint",
       "summary": "A preprint on phenotype-aware cardiovascular risk prediction from electronic health records is available on arXiv.",
       "href": "https://arxiv.org/abs/2509.04485"
+    },
+    {
+      "id": "flatascend-preprint",
+      "projectId": "ascend",
+      "date": "2026-04-13",
+      "kind": "Preprint",
+      "title": "FlatASCEND preprint",
+      "summary": "Submitted on 13 April 2026, this preprint studies clinical sequence generation and observational pharmacological associations. It is available on arXiv.",
+      "href": "https://arxiv.org/abs/2605.04071"
     }
   ]
 }
