@@ -18,21 +18,20 @@ const dateLabel = (date: string) => new Intl.DateTimeFormat('en-GB', {
 <article class="panel card" id={detail ? project.id : undefined}>
   {project.stage && <div class="status">{project.stage}</div>}
   <h3>{project.title}</h3>
-  <p>{project.summary}</p>
+  <p class="project-summary">{project.summary}</p>
+  <p><strong>Aim.</strong> {project.aim}</p>
+  <p><strong>Approach.</strong> {project.approach}</p>
   {milestone && (
     <div class="project-milestone">
       <span class="small muted">Latest public milestone · <time datetime={milestone.date}>{dateLabel(milestone.date)}</time></span>
       <p><a href={milestone.href}>{milestone.title}</a> <span class="small muted">({milestone.kind.toLowerCase()})</span></p>
     </div>
   )}
-  {detail ? (
-    project.href && <p><a href={project.href}>{project.linkLabel}</a></p>
-  ) : (
-    <p><a href={`/projects#${project.id}`}>About {project.title}</a></p>
-  )}
+  {project.href && <p><a href={project.href}>{project.linkLabel}</a></p>}
 </article>
 
 <style>
   .project-milestone { border-top: 1px solid var(--line); padding-top: 0.9rem; margin-top: 1rem; }
   .project-milestone p { margin-top: 0.3rem; }
+  .project-summary { font-weight: 600; }
 </style>

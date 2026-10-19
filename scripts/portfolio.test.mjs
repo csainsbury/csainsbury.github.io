@@ -21,7 +21,7 @@ test('one shared portfolio, unique project anchors and 3–4 featured cards', ()
   assert.ok(projects.filter(p => p.featured).length <= 4);
   for (const project of projects) {
     assert.match(project.id, /^[a-z0-9-]+$/);
-    assert.ok(project.title && project.summary);
+    assert.ok(project.title && project.summary && project.aim && project.approach);
     assert.ok([null, 'Exploring', 'Building', 'Evaluating', 'Public release'].includes(project.stage));
     if (project.href) { https(project.href); assert.ok(project.linkLabel); }
     else assert.equal(project.linkLabel, null);
