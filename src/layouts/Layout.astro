@@ -10,13 +10,12 @@ interface Props {
 
 const {
   title = 'Chris Sainsbury — sainsbury.ai',
-  description = 'Clinician-researcher working on clinical foundation models, EHR representation learning, translational AI, and research software.',
+  description = 'Consultant physician in diabetes and endocrinology, building and studying models of electronic health records.',
   currentPath = '/',
   hideNavigation = false,
 } = Astro.props;
 
 const nav = [
-  { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
   { href: '/outputs', label: 'Outputs' },
 ];
@@ -26,59 +25,47 @@ const nav = [
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
   <body>
-    <div class="site-shell">
-      <header class="app-bar">
-        <div class="app-bar__inner">
-          {hideNavigation ? (
-            <div class="brand" aria-label="sainsbury.ai">
-              <span class="brand__mark">CS</span>
-              <span>sainsbury.ai</span>
-            </div>
-          ) : (
-            <a href="/" class="brand" aria-label="sainsbury.ai home">
-              <span class="brand__mark">CS</span>
-              <span>sainsbury.ai</span>
-            </a>
-          )}
-
-          {!hideNavigation && (
-            <>
-              <nav class="app-nav" aria-label="Main navigation">
-                {nav.map((item) => (
-                  <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
-                ))}
-              </nav>
-
-              <nav class="app-nav app-nav--external" aria-label="External links">
-                <a href="https://glucose.ai" target="_blank" rel="noreferrer">glucose.ai</a>
-                <a href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="mailto:chris@sainsbury.ai">Email</a>
-              </nav>
-            </>
-          )}
-        </div>
+    <div class="wrap">
+      <header class="site-header">
+        {hideNavigation ? (
+          <span class="brand">sainsbury.ai</span>
+        ) : (
+          <a href="/" class="brand" aria-label="sainsbury.ai home">sainsbury.ai</a>
+        )}
+        {!hideNavigation && (
+          <nav class="site-nav" aria-label="Main">
+            {nav.map((item) => (
+              <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+            ))}
+            <a href="https://glucose.ai" target="_blank" rel="noreferrer">glucose.ai</a>
+            <a href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
+          </nav>
+        )}
       </header>
 
       <main>
-        <div class="page">
-          <slot />
-        </div>
+        <slot />
       </main>
 
-      <footer class="app-footer">
-        <div class="app-footer__inner">
-          <div>© 2026 Chris Sainsbury</div>
-          <div class="spacer"></div>
-          <div>sainsbury.ai · clinical AI · research software · active projects</div>
-        </div>
+      <footer class="site-footer">
+        <span class="email">chris@sainsbury.ai</span>
+        <a href="https://orcid.org/0000-0002-7984-5721" target="_blank" rel="noreferrer">ORCID</a>
+        <a href="https://scholar.google.co.uk/citations?user=6zfnq1kAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+        <a href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
+        <span class="spacer"></span>
+        <span>© 2026 Chris Sainsbury</span>
       </footer>
     </div>
   </body>

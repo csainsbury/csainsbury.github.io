@@ -4,128 +4,89 @@ import publicationsData from '../data/publications.json';
 import portfolio from '../data/portfolio.json';
 import ProjectCard from '../components/ProjectCard.astro';
 
-const featuredProjects = portfolio.sections.flatMap((section) => section.projects).filter((project) => project.featured);
-const milestones = [...portfolio.milestones].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
-const dateLabel = (date: string) => new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
-}).format(new Date(`${date}T00:00:00Z`));
-const recentOutputs = publicationsData.items.slice(0, 3);
+const currentProjects = portfolio.sections.flatMap((section) => section.projects).filter((project) => project.featured);
+const recentOutputs = publicationsData.items.slice(0, 4);
 
-const themes = [
-  'Clinical foundation models',
-  'EHR representation learning',
-  'Mechanistic interpretability',
-  'Translational AI in medicine',
-  'Scientific discovery systems',
-  'Research software and agent workflows',
+// Illustrative record: coded events with day offsets; gaps are drawn to scale.
+const events: [string, number, 'event' | 'measure'][] = [
+  ['E11 T2DM', 0, 'event'], ['HbA1c 64', 3, 'measure'], ['metformin 500 mg', 14, 'event'],
+  ['HbA1c 55', 98, 'measure'], ['eGFR 71', 180, 'measure'], ['metformin 1 g', 196, 'event'],
+  ['HbA1c 51', 290, 'measure'], ['SGLT2i', 410, 'event'], ['HbA1c 48', 505, 'measure'],
 ];
+let seed = 23;
+const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+const tokens = events.map(([code, day, kind], i) => {
+  const next = i + 1 < events.length ? events[i + 1][1] - day : 60;
+  const vec = [0, 1].map(() => Array.from({ length: 8 }, () => (0.15 + Math.pow(rnd(), 1.6) * 0.85).toFixed(2)));
+  return { code, kind, vec, dt: i ? `+${day - events[i - 1][1]}d` : 'day 0', flex: `${Math.max(next, 60)} 0 0` };
+});
 ---
 
 <Layout currentPath="/">
   <section class="hero">
-    <div class="panel hero-copy">
-      <div class="eyebrow"><span class="dot"></span>Clinical AI · EHR representation · research software</div>
-      <h1 class="hero-title">Chris Sainsbury</h1>
-      <p class="lead">
-        Clinician-researcher working on clinical foundation models, EHR representation learning,
-        translational AI and research software.
+    <h1>Chris<br />Sainsbury</h1>
+    <div class="hero__side">
+      <p class="hero__lead">Consultant physician in diabetes and endocrinology. I build models that read the health record as a sequence, and study what they learn.</p>
+      <p class="hero__posts">
+        QEUH · NHS Greater Glasgow and Clyde<br />
+        Hon. Clinical Senior Lecturer, University of Glasgow<br />
+        Hon. Clinical Reader, University of Dundee<br />
+        Hon. Senior Research Fellow, University of Birmingham<br />
+        BSc MD FRCP FBCS
       </p>
-      <p>
-        Consultant Physician (Diabetes &amp; Endocrinology), Queen Elizabeth University Hospital,
-        NHS Greater Glasgow and Clyde. Honorary Clinical Senior Lecturer, University of Glasgow;
-        Honorary Clinical Reader, University of Dundee; Honorary Senior Research Fellow, University of
-        Birmingham. BSc MD FRCP FBCS.
-      </p>
-
-      <div class="button-row">
-        <a class="button primary" href="/projects">View projects</a>
-        <a class="button" href="/outputs">Recent outputs</a>
-      </div>
     </div>
+  </section>
 
-    <aside class="panel hero-side stack">
-      <div class="metric">
-        <strong>Public links</strong>
-        <div class="tag-list">
-          <a class="tag" href="https://glucose.ai" target="_blank" rel="noreferrer">glucose.ai</a>
-          <a class="tag" href="https://orcid.org/0000-0002-7984-5721" target="_blank" rel="noreferrer">ORCID</a>
-          <a class="tag" href={publicationsData.sourceUrl} target="_blank" rel="noreferrer">Google Scholar</a>
-          <a class="tag" href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
+  <figure class="record">
+    <div class="record__scroll">
+      <div class="record__grid" aria-hidden="true">
+        <div class="record__row">
+          {tokens.map((t) => (
+            <div class="record__vec" style={`flex: ${t.flex}`}>
+              {t.vec.map((col) => (
+                <div class="record__col">
+                  {col.map((v) => <div class={`record__dot kind-${t.kind}`} style={`opacity: ${v}`}></div>)}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div class="record__row record__row--tokens">
+          {tokens.map((t) => (
+            <div class="record__token" style={`flex: ${t.flex}`}>
+              <span class={`record__code kind-${t.kind}`}>{t.code}</span>
+              <span class="record__dt">{t.dt}</span>
+            </div>
+          ))}
         </div>
       </div>
-      <section class="metric" aria-labelledby="now-heading">
-        <div class="eyebrow">Now</div>
-        <h2 id="now-heading">Currently working on</h2>
-        <p>{portfolio.now.text}</p>
-        {portfolio.now.updated && <p class="small muted">Updated <time datetime={portfolio.now.updated}>{dateLabel(portfolio.now.updated)}</time></p>}
-      </section>
-    </aside>
+    </div>
+    <figcaption>
+      <span>Illustrative record: coded events in time, gaps drawn to scale. Above each token, its learned representation.</span>
+      <span><i class="key-dot kind-event"></i>diagnosis / prescription &nbsp; <i class="key-dot kind-measure"></i>measurement</span>
+    </figcaption>
+  </figure>
+
+  <section class="section" aria-labelledby="current-heading">
+    <h2 id="current-heading" class="label">Current projects</h2>
+    <div class="project-grid">
+      {currentProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+    <a class="textlink" href="/projects">All projects, with aims and approach →</a>
   </section>
 
-  <section class="section" aria-labelledby="featured-heading">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Active research</div>
-        <h2 id="featured-heading">Current projects</h2>
-        <p>The aim and approach of each project, with milestones linked to public outputs.</p>
-      </div>
-      <a href="/projects">All projects →</a>
+  <section class="section" aria-labelledby="outputs-heading">
+    <h2 id="outputs-heading" class="label">Recent outputs</h2>
+    <div class="outputs">
+      {recentOutputs.map((paper) => (
+        <div class="output">
+          <span class="output__meta">{paper.year} · {paper.venue}</span>
+          <div class="output__body">
+            {paper.href ? <a class="output__title" href={paper.href} target="_blank" rel="noreferrer">{paper.title}</a> : <span class="output__title">{paper.title}</span>}
+          </div>
+        </div>
+      ))}
     </div>
-    <div class="grid two">
-      {featuredProjects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
-
-  {milestones.length > 0 && (
-    <section class="section panel" aria-labelledby="developments-heading">
-      <div class="eyebrow">Papers · software · public outputs</div>
-      <h2 id="developments-heading">Public milestones</h2>
-      <p class="muted">Selected developments, using the dates recorded by their linked sources. Preprints are work in progress, not peer-reviewed findings.</p>
-      <div class="list">
-        {milestones.map((milestone) => (
-          <article class="list-item">
-            <div class="small muted"><time datetime={milestone.date}>{dateLabel(milestone.date)}</time> · {milestone.kind}</div>
-            <h3><a href={milestone.href}>{milestone.title}</a></h3>
-            <p>{milestone.summary}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  )}
-
-  <section class="grid two" style="margin-top: 1rem;">
-    <div class="section panel">
-      <div class="eyebrow">recent outputs</div>
-      <h2>Papers and scholarly outputs</h2>
-      <div class="list publications-list">
-        {recentOutputs.map((paper) => (
-          <article class="list-item publication-item">
-            <div class="publication-meta">
-              <span class="status">{paper.year}</span>
-              {paper.citedBy && <span class="small">Cited by {paper.citedBy}</span>}
-            </div>
-            <h3>{paper.href ? <a href={paper.href} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h3>
-            <p class="muted">{paper.authors}</p>
-            <p>{paper.venue}</p>
-          </article>
-        ))}
-      </div>
-      <p><a href="/outputs">See all outputs</a></p>
-    </div>
-
-    <div class="section panel">
-      <div class="eyebrow">areas of work</div>
-      <h2>What connects the portfolio</h2>
-      <p class="copy">
-        The portfolio spans academic papers, translational grants, scientific-discovery systems, and
-        software for organising research. The aim is not just to build models, but to make them
-        clinically meaningful and operationally usable.
-      </p>
-      <div class="tag-list">
-        {themes.map((theme) => (
-          <span class="tag">{theme}</span>
-        ))}
-      </div>
-    </div>
+    <a class="textlink" href="/outputs">All outputs →</a>
   </section>
 </Layout>

@@ -21,7 +21,7 @@ test('one shared portfolio, unique project anchors and 3–4 featured cards', ()
   assert.ok(projects.filter(p => p.featured).length <= 4);
   for (const project of projects) {
     assert.match(project.id, /^[a-z0-9-]+$/);
-    assert.ok(project.title && project.summary && project.aim && project.approach);
+    assert.ok(project.title && project.gloss && project.summary && project.aim && project.approach);
     assert.ok([null, 'Exploring', 'Building', 'Evaluating', 'Public release'].includes(project.stage));
     if (project.href) { https(project.href); assert.ok(project.linkLabel); }
     else assert.equal(project.linkLabel, null);
@@ -42,7 +42,7 @@ test('every milestone has a real date, project and public source', () => {
 test('Now dates are optional, not generated from a review clock', () => {
   assert.ok(portfolio.now.text);
   if (portfolio.now.updated !== null) realDate(portfolio.now.updated);
-  const home = readFileSync(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
+  const home = readFileSync(new URL('../src/pages/projects.astro', import.meta.url), 'utf8');
   assert.ok(home.includes('portfolio.now.updated &&'));
   assert.ok(!home.includes('new Date()'));
 });

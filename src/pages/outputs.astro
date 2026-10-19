@@ -28,73 +28,44 @@ const software = [
 ---
 
 <Layout title="Outputs — Chris Sainsbury" currentPath="/outputs">
-  <section class="page-header copy">
-    <div class="eyebrow">outputs</div>
-    <h1>Selected outputs</h1>
-    <p class="lead">
-      Recent papers, preprints, scholarly outputs and software, drawn from my Google Scholar profile.
-    </p>
-    <p class="small">
-      Last refreshed: {publicationsData.lastRefreshed}. Full profile:
-      <a href={publicationsData.sourceUrl} target="_blank" rel="noreferrer">Google Scholar</a>.
-    </p>
+  <section class="page-head">
+    <h2 class="label">Outputs</h2>
+    <h1>Papers and software</h1>
+    <p class="lead">Recent papers, preprints, scholarly outputs and software, drawn from my Google Scholar profile.</p>
+    <p class="note">Last refreshed {publicationsData.lastRefreshed} · <a class="textlink" href={publicationsData.sourceUrl} target="_blank" rel="noreferrer">Full Google Scholar profile</a></p>
   </section>
 
-  <section class="grid two">
-    <div class="panel section">
-      <h2>Papers/preprints</h2>
-      <div class="list publications-list">
+  <div class="two-col">
+    <section class="section" aria-labelledby="papers-heading">
+      <h2 id="papers-heading" class="label">Papers and preprints</h2>
+      <div class="outputs">
         {papers.map((paper) => (
-          <article class="list-item publication-item">
-            <div class="publication-meta">
-              <span class="status">{paper.year}</span>
-              {paper.citedBy && <span class="small">Cited by {paper.citedBy}</span>}
+          <div class="output">
+            <span class="output__meta">{paper.year}{paper.citedBy && ` · cited by ${paper.citedBy}`}</span>
+            <div class="output__body">
+              {paper.href ? <a class="output__title" href={paper.href} target="_blank" rel="noreferrer">{paper.title}</a> : <span class="output__title">{paper.title}</span>}
+              <span class="output__authors">{paper.authors}</span>
+              <span class="output__authors">{paper.venue}</span>
             </div>
-            <h3>{paper.href ? <a href={paper.href} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h3>
-            <p class="muted">{paper.authors}</p>
-            <p>{paper.venue}</p>
-          </article>
+          </div>
         ))}
       </div>
-    </div>
+    </section>
 
-    <aside class="stack">
-      <div class="panel section">
-        <h2>Software and infrastructure</h2>
-        <div class="list software-list">
-          {software.map((item) => (
-            <article class="list-item software-item">
-              <div class="publication-meta">
-                <span class="status">{item.status}</span>
-              </div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              {item.links.length > 0 && (
-                <div class="tag-list">
-                  {item.links.map((link) => (
-                    <a class="tag" href={link.href} target="_blank" rel="noreferrer">
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              )}
-              <div class="tag-list">
-                {item.tags.map((tag) => (
-                  <span class="tag">{tag}</span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-
-      <div class="panel section copy">
-        <h2>Research software</h2>
-        <p>
-          The trial-emulation package, NEXUS, Physarum and the pi / Cog research workflows are described on the
-          <a href="/projects">Projects</a> page.
-        </p>
-      </div>
+    <aside class="section" aria-labelledby="software-heading">
+      <h2 id="software-heading" class="label">Software</h2>
+      {software.map((item) => (
+        <article class="software">
+          <span class="project__gloss">{item.status}</span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <div class="chips">
+            {item.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} →</a>)}
+            {item.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </article>
+      ))}
+      <p class="muted">The trial-emulation package, NEXUS, Physarum and the pi / Cog research workflows are described on the <a class="textlink" href="/projects">Projects</a> page.</p>
     </aside>
-  </section>
+  </div>
 </Layout>

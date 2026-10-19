@@ -38,7 +38,7 @@ Public copy gives an abstract-level aim and approach for each project (Chris, 20
 
 ## Styling
 
-The main visual system is incorporated into `src/styles/global.css`, with a small Astro composition layer appended for the current page structure.
+Direction D ("latent sequence", chosen 2026-10-19 from the design canvas): Geist and Geist Mono, hairline-separated sections, no panels. `src/styles/global.css` holds the tokens; the site follows the visitor's system theme (dark and light palettes). The homepage figure is an illustrative coded record with per-token representation dots, generated deterministically in `src/pages/index.astro`.
 
 ## Deployment
 

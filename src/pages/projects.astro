@@ -2,35 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import portfolio from '../data/portfolio.json';
 import ProjectCard from '../components/ProjectCard.astro';
+
+const slug = (title: string) => `${title.toLowerCase().replaceAll(' ', '-')}-heading`;
+const dateLabel = (date: string) => new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+}).format(new Date(`${date}T00:00:00Z`));
 ---
 
 <Layout title="Projects — Chris Sainsbury" currentPath="/projects">
-  <section class="page-header copy">
-    <div class="eyebrow">projects</div>
+  <section class="page-head">
+    <h2 class="label">Projects</h2>
     <h1>Research and software</h1>
-    <p class="lead">
-      Clinical sequence modelling, scientific discovery and tools for doing research.
-      These summaries describe the purpose of the work; public outputs provide the detail.
-    </p>
-    <p class="muted small">
-      Where shown, stages describe public development status—not percentage complete or clinical readiness.
-      Milestones are dated public outputs, not a live research log.
-    </p>
+    <p class="lead">{portfolio.now.text}</p>
+    {portfolio.now.updated && <p class="note">Updated <time datetime={portfolio.now.updated}>{dateLabel(portfolio.now.updated)}</time></p>}
+    <p class="note">Stages describe public development status, not completeness or clinical readiness. Milestones are dated public outputs.</p>
   </section>
 
-  <div class="stack">
-    {portfolio.sections.map((section) => (
-      <section class="section" aria-labelledby={`${section.title.toLowerCase().replaceAll(' ', '-')}-heading`}>
-        <div class="section-head">
-          <div>
-            <h2 id={`${section.title.toLowerCase().replaceAll(' ', '-')}-heading`}>{section.title}</h2>
-            <p>{section.description}</p>
-          </div>
-        </div>
-        <div class="grid two">
-          {section.projects.map((project) => <ProjectCard project={project} detail />)}
-        </div>
-      </section>
-    ))}
-  </div>
+  {portfolio.sections.map((section) => (
+    <section class="section" aria-labelledby={slug(section.title)}>
+      <div class="section-head">
+        <h2 id={slug(section.title)}>{section.title}</h2>
+        <p>{section.description}</p>
+      </div>
+      <div class="project-grid project-grid--wide">
+        {section.projects.map((project) => <ProjectCard project={project} detail />)}
+      </div>
+    </section>
+  ))}
 </Layout>

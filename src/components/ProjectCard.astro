@@ -15,23 +15,30 @@ const dateLabel = (date: string) => new Intl.DateTimeFormat('en-GB', {
 }).format(new Date(`${date}T00:00:00Z`));
 ---
 
-<article class="panel card" id={detail ? project.id : undefined}>
-  {project.stage && <div class="status">{project.stage}</div>}
-  <h3>{project.title}</h3>
-  <p class="project-summary">{project.summary}</p>
-  <p><strong>Aim.</strong> {project.aim}</p>
-  <p><strong>Approach.</strong> {project.approach}</p>
-  {milestone && (
-    <div class="project-milestone">
-      <span class="small muted">Latest public milestone · <time datetime={milestone.date}>{dateLabel(milestone.date)}</time></span>
-      <p><a href={milestone.href}>{milestone.title}</a> <span class="small muted">({milestone.kind.toLowerCase()})</span></p>
+{detail ? (
+  <article class="project project--detail" id={project.id}>
+    <div class="project__head">
+      <h3 class="project__title">{project.title}</h3>
+      <span class="project__gloss">{project.gloss}</span>
     </div>
-  )}
-  {project.href && <p><a href={project.href}>{project.linkLabel}</a></p>}
-</article>
-
-<style>
-  .project-milestone { border-top: 1px solid var(--line); padding-top: 0.9rem; margin-top: 1rem; }
-  .project-milestone p { margin-top: 0.3rem; }
-  .project-summary { font-weight: 600; }
-</style>
+    {project.stage && <span class="project__stage">{project.stage}</span>}
+    <p class="project__summary">{project.summary}</p>
+    <p class="project__para"><strong>Aim.</strong>{' '}{project.aim}</p>
+    <p class="project__para"><strong>Approach.</strong>{' '}{project.approach}</p>
+    {milestone && (
+      <div class="project__milestone">
+        <span class="meta">Latest public milestone · <time datetime={milestone.date}>{dateLabel(milestone.date)}</time> · {milestone.kind.toLowerCase()}</span>
+        <a class="textlink" href={milestone.href}>{milestone.title}</a>
+      </div>
+    )}
+    {project.href && <a class="textlink" href={project.href}>{project.linkLabel} →</a>}
+  </article>
+) : (
+  <a class="project" href={`/projects#${project.id}`}>
+    <span class="project__head">
+      <span class="project__title">{project.title}</span>
+      <span class="project__gloss">{project.gloss}</span>
+    </span>
+    <span class="project__summary">{project.summary}</span>
+  </a>
+)}
