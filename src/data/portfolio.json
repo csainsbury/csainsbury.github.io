@@ -104,6 +104,17 @@
       "description": "Software that helps research remain connected and usable over time.",
       "projects": [
         {
+          "id": "trial-emulation",
+          "title": "trial-emulation (Python)",
+          "summary": "An open-source Python package for target trial emulation, ported and adapted from the TrialEmulation R package and published on PyPI.",
+          "aim": "Target trial emulation estimates treatment effects from observational data by specifying the randomised trial that would answer the question and then emulating it in routinely collected records. The aim is to make this established method available to the Python data-science and machine-learning ecosystem used for much electronic health record research, so that it can sit in the same pipelines as data preparation and modelling.",
+          "approach": "The package reimplements the TrialEmulation R package in Python and modifies it for that ecosystem. Longitudinal person-time data are expanded into a sequence of nested emulated trials, and marginal structural models are fitted by weighted pooled logistic regression, with inverse-probability weights for treatment switching and informative censoring. It supports intention-to-treat, per-protocol and as-treated estimands, cluster-robust variance and case-control sampling for large datasets. It works with pandas, NumPy and statsmodels, accepts R-style formulas, and uses C++ extensions for the computationally intensive steps. It is released under the Apache 2.0 licence.",
+          "stage": "Public release",
+          "featured": false,
+          "href": "https://pypi.org/project/trial-emulation/",
+          "linkLabel": "trial-emulation on PyPI"
+        },
+        {
           "id": "pi-cog",
           "title": "pi / Cog workflows",
           "summary": "Tools for connecting research sources, experiments and synthesis, so useful work is easier to organise and revisit.",
