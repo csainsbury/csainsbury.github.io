@@ -1,33 +1,52 @@
 {
   "source": "Google Scholar public profile",
   "sourceUrl": "https://scholar.google.co.uk/citations?hl=en&user=6zfnq1kAAAAJ&view_op=list_works&sortby=pubdate",
-  "lastRefreshed": "2026-06-17",
+  "lastRefreshed": "2026-10-19",
   "note": "Seeded from the first Google Scholar profile page sorted by publication date; verify before treating as a complete publication archive.",
   "items": [
+    {
+      "title": "Associations between fenofibrate use and sight-threatening diabetic retinopathy in type 2 diabetes: UK real-world evidence",
+      "authors": "L Tan, JM Cooper, K Gokhale, C Sainsbury, AK Denniston, KA Toulis, ...",
+      "venue": "The Journal of Clinical Endocrinology & Metabolism, dgag367",
+      "year": "2026",
+      "href": "https://doi.org/10.1210/clinem/dgag367"
+    },
     {
       "title": "Causal counterfactual simulation for treatment decisions in multimodal lung disease data",
       "authors": "Y Zhu, L Zhang, C Sainsbury, F Dong, J MacLay, DJ Lowe, X Ye",
       "venue": "Computers in Biology and Medicine 213, 111807",
-      "year": "2026"
+      "year": "2026",
+      "href": "https://doi.org/10.1016/j.compbiomed.2026.111807"
     },
     {
       "title": "Exploring the use of AI-generated counterfactual chest X-rays to enhance diagnostic learning in medical education",
       "authors": "G Mohr, Y Zhu, X Ye, M Lennon, C MacLellan, J Maclay, DJ Lowe, ...",
       "venue": "BMC Medical Education",
-      "year": "2026"
+      "year": "2026",
+      "href": "https://doi.org/10.1186/s12909-026-09597-7"
+    },
+    {
+      "title": "SurvivEHR: a competing risks, time-to-event foundation model for multiple long-term conditions from primary care electronic health records",
+      "authors": "C Gadd, K Gokhale, A Acharya, J Cooper, F Crowe, L Fitzsimmons, ...",
+      "venue": "npj Digital Medicine",
+      "year": "2026",
+      "citedBy": "4",
+      "href": "https://doi.org/10.1038/s41746-026-02709-z"
     },
     {
       "title": "Sparse Autoencoder Decomposition of Clinical Sequence Model Representations: Feature Complexity, Task Specialisation, and Mortality Prediction",
       "authors": "C Sainsbury, F Dong, A Karwath",
       "venue": "arXiv preprint arXiv:2605.04072",
-      "year": "2026"
+      "year": "2026",
+      "href": "https://arxiv.org/abs/2605.04072"
     },
     {
       "title": "FlatASCEND: Autoregressive Clinical Sequence Generation with Continuous Time Prediction and Association-Based Pharmacological Testing",
-      "authors": "C Sainsbury, F Dong, K Andreas",
-      "venue": "arXiv",
+      "authors": "C Sainsbury, F Dong, A Karwath",
+      "venue": "arXiv preprint arXiv:2605.04071",
       "year": "2026",
-      "citedBy": "1"
+      "citedBy": "1",
+      "href": "https://arxiv.org/abs/2605.04071"
     },
     {
       "title": "Implementation of a diabetes electronic health record with clinical decision support in primary care: A mixed methods study",
@@ -52,40 +71,46 @@
       "title": "Study protocol for an open-label, single-arm, mixed methods feasibility study of the MWIQ AI-powered decision support tool for diabetes management in GP practices",
       "authors": "J Dickson, SG Cunningham, C Sainsbury, MK Rutter, N Kanumilli, ...",
       "venue": "BMJ Open 15 (10), e097644",
-      "year": "2025"
+      "year": "2025",
+      "href": "https://doi.org/10.1136/bmjopen-2024-097644"
     },
     {
       "title": "Counterfactual medical images generation for lung disease diagnosis using probabilistic causal models and active learning",
       "authors": "Y Zhu, L Zhang, C Sainsbury, F Dong, J MacLay, DJ Lowe, X Ye",
       "venue": "IEEE Access",
       "year": "2025",
-      "citedBy": "4"
+      "citedBy": "4",
+      "href": "https://doi.org/10.1109/access.2025.3615683"
     },
     {
       "title": "ASCENDgpt: A Phenotype-Aware Transformer Model for Cardiovascular Risk Prediction from Electronic Health Records",
       "authors": "C Sainsbury, A Karwath",
       "venue": "arXiv preprint arXiv:2509.04485",
-      "year": "2025"
+      "year": "2025",
+      "href": "https://arxiv.org/abs/2509.04485"
     },
     {
       "title": "Impact on diabetes-related health outcomes using a digitally-enabled diabetes self-management platform in Somerset, UK: An interrupted time-series analysis",
       "authors": "M Baxter, N Conway, A Bickerton, S Cunningham, SC MacKenzie, ...",
       "venue": "Primary Care Diabetes 19 (4), 360-367",
-      "year": "2025"
+      "year": "2025",
+      "href": "https://doi.org/10.1016/j.pcd.2025.05.003"
     },
     {
       "title": "Emulating real-world GLP-1 efficacy in type 2 diabetes through causal learning and virtual patients",
       "authors": "CR MacLellan, H Petkov, C McKeag, F Dong, DJ Lowe, R Maguire, ...",
       "venue": "PLOS Digital Health 4 (7), e0000927",
       "year": "2025",
-      "citedBy": "1"
+      "citedBy": "1",
+      "href": "https://doi.org/10.1371/journal.pdig.0000927"
     },
     {
       "title": "Narrative review: continuous glucose monitoring (CGM) in older adults with diabetes",
       "authors": "A Wilson, D Morrison, C Sainsbury, G Jones",
       "venue": "Diabetes Therapy 16 (6), 1139-1154",
       "year": "2025",
-      "citedBy": "12"
+      "citedBy": "12",
+      "href": "https://doi.org/10.1007/s13300-025-01720-z"
     },
     {
       "title": "Factors associated with prescribing initial antidiabetic drugs among patients with type 2 diabetes mellitus in Scotland, 2010–2020: a retrospective population-based study",
@@ -140,7 +165,8 @@
       "authors": "F Mahmoud, T Mueller, A Mullen, C Sainsbury, GF Rushworth, A Kurdi",
       "venue": "Diabetes, Obesity and Metabolism 26 (7), 2684-2694",
       "year": "2024",
-      "citedBy": "5"
+      "citedBy": "5",
+      "href": "https://doi.org/10.1111/dom.15584"
     }
   ]
 }

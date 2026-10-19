@@ -28,12 +28,13 @@ const themes = [
       <h1 class="hero-title">Chris Sainsbury</h1>
       <p class="lead">
         Clinician-researcher working on clinical foundation models, EHR representation learning,
-        translational AI, and research software.
+        translational AI and research software.
       </p>
       <p>
-        I work across medicine, machine learning, and research infrastructure. This site is a public
-        front page for the main things I am working on: active projects, recent outputs, papers,
-        software, and current directions.
+        Consultant Physician (Diabetes &amp; Endocrinology), Queen Elizabeth University Hospital,
+        NHS Greater Glasgow and Clyde. Honorary Clinical Senior Lecturer, University of Glasgow;
+        Honorary Clinical Reader, University of Dundee; Honorary Senior Research Fellow, University of
+        Birmingham. BSc MD FRCP FBCS.
       </p>
 
       <div class="button-row">
@@ -48,6 +49,7 @@ const themes = [
         <div class="tag-list">
           <a class="tag" href="https://glucose.ai" target="_blank" rel="noreferrer">glucose.ai</a>
           <a class="tag" href="https://orcid.org/0000-0002-7984-5721" target="_blank" rel="noreferrer">ORCID</a>
+          <a class="tag" href={publicationsData.sourceUrl} target="_blank" rel="noreferrer">Google Scholar</a>
           <a class="tag" href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
@@ -102,7 +104,7 @@ const themes = [
               <span class="status">{paper.year}</span>
               {paper.citedBy && <span class="small">Cited by {paper.citedBy}</span>}
             </div>
-            <h3>{paper.title}</h3>
+            <h3>{paper.href ? <a href={paper.href} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h3>
             <p class="muted">{paper.authors}</p>
             <p>{paper.venue}</p>
           </article>

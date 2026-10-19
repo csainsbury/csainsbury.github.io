@@ -1,6 +1,6 @@
 {
   "now": {
-    "text": "My work connects clinical sequence modelling, tools for scientific discovery, and research software. The common aim is to make complex evidence more useful for medical research.",
+    "text": "My work connects clinical sequence modelling, clinical decision support, tools for scientific discovery and research software. The common aim is to make complex evidence more useful for medical research and patient care.",
     "updated": null
   },
   "sections": [
@@ -44,6 +44,23 @@
       ]
     },
     {
+      "title": "Clinical decision support",
+      "description": "Bringing guideline evidence to the individual patient, with every recommendation traceable to its source.",
+      "projects": [
+        {
+          "id": "validact",
+          "title": "ValidAct: verified clinical decision support",
+          "summary": "A guideline-grounded reasoning assistant for diabetes care that checks every recommendation against its evidence.",
+          "aim": "Clinical guidelines are long, frequently updated and hard to apply to an individual patient with several conditions and treatments. ValidAct aims to give clinicians patient-specific management suggestions that handle this nuance, while making every statement traceable to the guideline evidence behind it, so that unsupported or contradicted advice is flagged rather than presented as fact.",
+          "approach": "National and international guidelines and medicine information (for example NICE, ADA/EASD and JBDS guidance, and product characteristics) are parsed into structured, searchable sections. For a given patient, the relevant recommendations are retrieved and a generative language model reasons over them together with the patient’s record to draft a management plan. Each statement is then checked against the retrieved evidence and labelled as supported, contradicted or insufficiently supported. Smaller specialist models help screen relevance and flag issues, but do not replace the model’s reasoning. Development starts in diabetes care, with MyWay Digital Health and support from Scottish Enterprise.",
+          "stage": null,
+          "featured": true,
+          "href": null,
+          "linkLabel": null
+        }
+      ]
+    },
+    {
       "title": "Scientific discovery systems",
       "description": "Making scientific literature and possible research directions easier to explore.",
       "projects": [
@@ -76,7 +93,7 @@
           "aim": "Research at the intersection of diabetes and artificial intelligence is spread across clinical journals, preprint servers and computer-science venues. glucose.ai aims to bring it together in one place that is current, searchable and easy to explore.",
           "approach": "An automated pipeline collects new papers daily from PubMed, arXiv, bioRxiv, medRxiv, OpenAlex and Semantic Scholar, removes duplicates, extracts full text where available and finds linked code repositories. Papers are embedded with a scientific-document language model to support semantic search, related-paper discovery and maps of the field. The collection holds more than 16,000 papers.",
           "stage": "Public release",
-          "featured": true,
+          "featured": false,
           "href": "https://glucose.ai",
           "linkLabel": "Explore glucose.ai"
         }

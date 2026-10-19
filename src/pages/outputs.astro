@@ -17,28 +17,12 @@ const software = [
     tags: ['target trial emulation', 'causal inference', 'time-to-event data', 'Python'],
   },
   {
-    title: 'NEXUS scientific-discovery system',
-    status: 'Research prototype',
+    title: 'glucose.ai',
+    status: 'Public release',
     description:
-      'An experimental system for reasoning about cross-domain method transfer: where a technique, representation, or design pattern from one field might plausibly unlock progress in another. The emphasis is on grounded discovery support rather than generic brainstorming.',
-    links: [],
-    tags: ['method transfer', 'scientific discovery', 'research intelligence'],
-  },
-  {
-    title: 'pi / cog project and synthesis workflows',
-    status: 'Research infrastructure',
-    description:
-      'A local knowledge and agent-workflow environment for keeping sources, tasks, synthesis pages, ideas, daily context, and project state connected. It is designed to make long-running research threads easier to resume, review, and develop over time.',
-    links: [],
-    tags: ['project memory', 'synthesis', 'agent workflows'],
-  },
-  {
-    title: 'Source-ingest and project-state tooling',
-    status: 'Workflow tooling',
-    description:
-      'Small scripts and routines for ingesting papers or transcripts, searching the maintained wiki, drafting task candidates, refreshing daily views, reviewing public-site updates, and preserving chronological work logs from Cog activity.',
-    links: [],
-    tags: ['source ingest', 'task extraction', 'daily review', 'work logs'],
+      'A public literature-discovery site for research at the intersection of diabetes and AI/machine learning. Papers are collected daily from PubMed, arXiv, bioRxiv, medRxiv, OpenAlex and Semantic Scholar, deduplicated, linked to code where available and embedded for semantic search.',
+    links: [{ label: 'glucose.ai', href: 'https://glucose.ai' }],
+    tags: ['diabetes', 'literature discovery', 'semantic search'],
   },
 ];
 ---
@@ -48,8 +32,7 @@ const software = [
     <div class="eyebrow">outputs</div>
     <h1>Selected outputs</h1>
     <p class="lead">
-      Recent papers, preprints, scholarly outputs, and software. The publication list is seeded from
-      my public Google Scholar profile and kept deliberately simple for now.
+      Recent papers, preprints, scholarly outputs and software, drawn from my Google Scholar profile.
     </p>
     <p class="small">
       Last refreshed: {publicationsData.lastRefreshed}. Full profile:
@@ -67,7 +50,7 @@ const software = [
               <span class="status">{paper.year}</span>
               {paper.citedBy && <span class="small">Cited by {paper.citedBy}</span>}
             </div>
-            <h3>{paper.title}</h3>
+            <h3>{paper.href ? <a href={paper.href} target="_blank" rel="noreferrer">{paper.title}</a> : paper.title}</h3>
             <p class="muted">{paper.authors}</p>
             <p>{paper.venue}</p>
           </article>
@@ -106,11 +89,10 @@ const software = [
       </div>
 
       <div class="panel section copy">
-        <h2>Publication updates</h2>
+        <h2>Research software</h2>
         <p>
-          This page currently uses a static snapshot rather than live Google Scholar scraping. A
-          monthly update check can be added later, ideally by opening a review issue or pull request
-          when new publications appear.
+          NEXUS, Physarum and the pi / Cog research workflows are described on the
+          <a href="/projects">Projects</a> page.
         </p>
       </div>
     </aside>
