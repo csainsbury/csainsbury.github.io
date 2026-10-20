@@ -87,15 +87,14 @@ main > * { min-width: 0; max-width: 100%; }
 /* Record figure */
 .record { margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
 .record__scroll { overflow-x: auto; max-width: 100%; }
-.record__grid { min-width: 820px; display: grid; grid-template-rows: auto auto; }
-.record__row { display: flex; }
-.record__vec { display: flex; gap: 3px; padding: 0 0 14px 10px; min-width: 0; align-items: flex-end; }
+.record__plot { position: relative; min-width: 760px; height: 220px; }
+.record__axis { position: absolute; left: 0; right: 0; top: 64px; height: 1px; background: var(--line-strong); }
+.record__vec { position: absolute; top: 0; transform: translateX(-50%); display: flex; gap: 3px; }
 .record__col { display: flex; flex-direction: column; gap: 3px; }
 .record__dot { width: 4px; height: 4px; border-radius: 50%; }
-.record__row--tokens { border-top: 1px solid var(--line-strong); }
-.record__token { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 12px 8px 0 10px; border-left: 1px solid var(--line-strong); font-family: var(--mono); }
-.record__code { font-size: 13px; line-height: 1.35; }
-.record__dt { font-size: 11px; color: var(--muted); }
+.record__tick { position: absolute; top: 58px; width: 1px; height: 13px; background: var(--muted); }
+.record__label { position: absolute; top: 80px; transform: rotate(45deg); transform-origin: 0 0; white-space: nowrap; font-family: var(--mono); font-size: 12px; line-height: 1.2; }
+.record__dt { color: var(--muted); }
 .kind-event { color: var(--accent); background-color: var(--accent); }
 .kind-measure { color: var(--fg-2); background-color: var(--fg-2); }
 .record__code.kind-event, .record__code.kind-measure { background-color: transparent; }
