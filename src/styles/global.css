@@ -125,6 +125,8 @@ a.project:hover .project__title { color: var(--accent-hover); }
 .outputs { display: flex; flex-direction: column; gap: 22px; }
 .output { display: flex; flex-wrap: wrap; gap: 6px 32px; align-items: baseline; }
 .output__meta { flex: 0 0 220px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.output--stacked { flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--line); }
+.output--stacked .output__meta { flex-basis: auto; }
 .output__body { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 .output__title { font-size: 18px; line-height: 1.4; }
 a.output__title:hover { color: var(--accent-hover); }
