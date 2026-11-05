@@ -29,18 +29,23 @@ const software = [
 const talks = [
   {
     date: 'November 2026',
-    title: 'AI across our work: from the clinic to the literature to the individual patient',
-    venue: 'Diabetes Technology Network UK (DTN-UK), joint session on AI',
+    title: 'Beyond glucose prediction: where else can AI improve diabetes care?',
+    venue: 'Diabetes Technology Network UK (DTN-UK)',
+    links: [
+      { label: 'Companion article', href: 'https://glucose.ai/dtn/article' },
+      { label: 'Slides (PDF)', href: 'https://glucose.ai/dtn/dtn-2026-11-sainsbury-slides.pdf' },
+    ],
   },
   {
     date: 'April 2026',
     title: 'AI in diabetes care',
     venue: 'Association of British Clinical Diabetologists (ABCD) webinar',
+    links: [],
   },
 ];
 ---
 
-<Layout title="Outputs — Chris Sainsbury" currentPath="/outputs">
+<Layout title="Outputs — Chris Sainsbury" description="Papers, preprints, software and talks by Chris Sainsbury on AI, electronic health records and diabetes." currentPath="/outputs">
   <section class="page-head">
     <h2 class="label">Outputs</h2>
     <h1>Papers, software and talks</h1>
@@ -86,11 +91,16 @@ const talks = [
             <div class="output__body">
               <span class="output__title">{talk.title}</span>
               <span class="output__authors">{talk.venue}</span>
+              {talk.links.length > 0 && (
+                <span class="chips">
+                  {talk.links.map((link) => <a href={link.href} target="_blank" rel="noreferrer">{link.label} →</a>)}
+                </span>
+              )}
             </div>
           </div>
         ))}
       </div>
-      <p class="muted">The trial-emulation package, NEXUS, Physarum and the pi / Cog research workflows are described on the <a class="textlink" href="/projects">Projects</a> page.</p>
+      <p class="muted">Projects, including NEXUS, PRIMA-HD and the pi / Cog research workflows, are described on the <a class="textlink" href="/projects">Projects</a> page.</p>
     </aside>
   </div>
 </Layout>

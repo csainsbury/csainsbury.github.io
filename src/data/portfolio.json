@@ -1,12 +1,12 @@
 {
   "now": {
-    "text": "My work connects clinical sequence modelling, clinical decision support, tools for scientific discovery and research software. The common aim is to make complex evidence more useful for medical research and patient care.",
-    "updated": "2026-11-02"
+    "text": "My work connects clinical sequence modelling, clinical decision support, patient education, tools for scientific discovery and research software. The common aim is to make complex evidence more useful for medical research and patient care.",
+    "updated": "2026-11-05"
   },
   "sections": [
     {
       "title": "Clinical sequence modelling",
-      "description": "Understanding patterns in electronic health records and their value for medical research.",
+      "description": "Understanding patterns in electronic health records, alone and linked with other data such as retinal images, and their value for medical research.",
       "projects": [
         {
           "id": "ascend",
@@ -14,7 +14,7 @@
           "gloss": "generative records",
           "summary": "Transformer models that learn how patients’ health records unfold over time, used to study risk, treatment response and patterns of disease.",
           "aim": "To build models of routine electronic health records that can forecast a patient’s future care — diagnoses, prescriptions and laboratory values, and when they occur — and that can be asked what would be expected to happen if a different treatment were started. If such a model reproduces known drug effects from observational data, it becomes a single tool for studying treatment response across many drugs and outcomes, including questions that trials have not addressed.",
-          "approach": "Each patient’s record is represented as a time-stamped sequence of coded events and measurements. ASCENDgpt (2025) used phenotype-aware tokens and an encoder model for cardiovascular risk prediction. FlatASCEND (2026) moved to a compact autoregressive generator that predicts both the next event and its timing, and tested whether simulated treatment starts reproduce known pharmacological associations; a companion study used sparse autoencoders to decompose the model’s internal representations into interpretable clinical features. Current work (ASCEND-GEN) trains one generative model on UK primary-care records and evaluates it against target-trial-style emulations of drug starts across 15 drug classes and six routine outcomes (HbA1c, blood pressure, LDL cholesterol, eGFR, weight and potassium). Rather than fitting a separate model for each question, it builds time-dependent drug-response dynamics into the model itself. Work now tests whether it also reproduces known differences in drug response between patients, checked on known-answer benchmarks in which a simulated drug effect is planted in real records.",
+          "approach": "Each patient’s record is represented as a time-stamped sequence of coded events and measurements. ASCENDgpt (2025) used phenotype-aware tokens and an encoder model for cardiovascular risk prediction. FlatASCEND (2026) moved to a compact autoregressive generator that predicts both the next event and its timing, and tested whether simulated treatment starts reproduce known pharmacological associations; a companion study used sparse autoencoders to decompose the model’s internal representations into interpretable clinical features. Current work (ASCEND-GEN) trains one generative model on UK primary-care records and evaluates it against target-trial-style emulations of drug starts across 15 drug classes and six routine outcomes (HbA1c, blood pressure, LDL cholesterol, eGFR, weight and potassium). Rather than fitting a separate model for each question, it builds time-dependent drug-response dynamics into the model itself. Because the model generates futures, the same history can be given twice with a different treatment started each time, and the two futures compared. Two kinds of known answer are used as checks, never for training: published patterns of differential drug response (for example from the Exeter work of Dennis and colleagues), and benchmarks in which a made-up drug effect is planted in real records. Current work asks whether the model recovers differences in treatment response between people, not just average effects.",
           "stage": null,
           "featured": true,
           "href": "https://arxiv.org/abs/2605.04072",
@@ -29,6 +29,18 @@
           "approach": "The first phase applied tools from computational linguistics and information theory — frequency and entropy analysis, cross-system alignment, and translation between coded sequences and English — to sequence models trained on records from several health systems. The current phase (ORCA-JEPA) trains joint-embedding predictive (JEPA-style) models on natively coded records from UK and US health systems together, without telling the model which codes mean the same thing. It tests whether patients in the same clinical situation land in the same region of the shared representation whichever system recorded them, using held-out code mappings only as a check, comparison groups matched on age, sex and amount of data, and links to clinical text.",
           "stage": null,
           "featured": true,
+          "href": null,
+          "linkLabel": null
+        },
+        {
+          "id": "prima-hd",
+          "title": "PRIMA-HD",
+          "gloss": "records and retinal images",
+          "summary": "An exemplar project in Glasgow's Trusted Research Environment that links diabetes records with eye-screening images, to test whether the two together predict outcomes better than either alone.",
+          "aim": "People with diabetes in Greater Glasgow and Clyde have rich linked records and regular retinal photographs, but these are rarely analysed together. PRIMA-HD (Pluripotent Representations for Integrated Multimodal Analysis of Healthcare Data) aims to learn each person's care journey from their records, to compare model-predicted outcomes of real treatment choices with what randomised trials found, and to test whether adding retinal images improves prediction. It is also a test of how this kind of work can be done safely inside a Trusted Research Environment.",
+          "approach": "Inside the NHS Greater Glasgow and Clyde / University of Glasgow Trusted Research Environment, SCI-Diabetes records are linked with prescribing, laboratory, hospital and death records and diabetic eye-screening images for adults with type 1 or type 2 diabetes. Each record becomes a time-ordered sequence for a generative model of the kind developed in ASCEND, with forecasts compared against statistical models chosen in advance. A retinal foundation model turns each screening photograph into a summary placed on the person's timeline, and prediction of retinopathy progression, kidney disease, cardiovascular events and death is compared with and without images. Trial results are used only to check the model, never to train it. Analysis code goes into the TRE, patient-level data never leave it, and only aggregate results and models that pass disclosure and memorisation checks can be released.",
+          "stage": "Set-up",
+          "featured": false,
           "href": null,
           "linkLabel": null
         },
@@ -56,9 +68,27 @@
           "gloss": "verified decision support",
           "summary": "Guideline-grounded decision support for diabetes care: patient-specific answers in which every statement quotes the guideline evidence it rests on.",
           "aim": "Clinical guidelines are long, frequently updated and hard to apply to an individual patient with several conditions and treatments. ValidAct aims to give clinicians patient-specific management suggestions that handle this nuance, while making every statement traceable to the guideline evidence behind it, so that unsupported or contradicted advice is flagged rather than presented as fact.",
-          "approach": "Curated guideline sources (for example NICE guidance on type 2 and type 1 diabetes, lipid modification and hypertension, and the JBDS hypoglycaemia pathways) are prepared offline into whole recommendations in their original wording, with notes on whom each applies to and what it does not cover. For a given patient, a generative language model reasons over the retrieved recommendations and the patient's record and writes the answer. Every statement quotes its source, and advice is grouped as applying to this patient, conditional on a fact to check first, not appropriate for this patient, or not covered by the sources. A small specialist model screens which passages are relevant and flags statements whose support or scope looks wrong, and fixed checks keep every quotation faithful; the guidance is never reduced to hard-coded rules. Development uses synthetic cases and starts in diabetes care, with MyWay Digital Health and support from Scottish Enterprise.",
+          "approach": "Guidance (for example NICE guidance on type 1 and type 2 diabetes, lipid modification and hypertension, ADA–EASD and JBDS guidelines, and drug summaries of product characteristics) is curated offline as whole recommendations in their original wording, with notes on whom each applies to and what it does not cover; it is never reduced to hard-coded rules. For a given patient, a language model reasons over the retrieved recommendations and the patient's record, quoting its source for every statement. Separate checks then match every quotation word for word against the source, test whether each statement applies to this patient, name the facts the answer depends on, and mark where the sources run out. The answer is grouped as applying to this patient, conditional on a fact to check, not applicable, or not covered by the sources. A complementary line trains a small open model on answers ValidAct has already checked, to teach it to use the evidence it is shown rather than to memorise guidance. Development uses synthetic cases, with MyWay Digital Health and support from Scottish Enterprise.",
           "stage": null,
           "featured": true,
+          "href": null,
+          "linkLabel": null
+        }
+      ]
+    },
+    {
+      "title": "Patient education",
+      "description": "Helping people understand and manage their condition between consultations.",
+      "projects": [
+        {
+          "id": "adaptive-learning",
+          "title": "Adaptive learning",
+          "gloss": "learning between consultations",
+          "summary": "Adaptive learning tools that find what a person already knows and teach the gaps, being adapted from other subjects to diabetes education.",
+          "aim": "Most of diabetes is managed by people themselves, between appointments. Structured education works, but information given once is quickly forgotten and people start from very different places. The aim is education that adapts to each person's understanding, not to clicks, and complements educators, structured programmes and peer support rather than replacing them.",
+          "approach": "Short placement questions map what someone already understands; familiar ground is summarised and time is spent where understanding is weakest. The tools build on established learning principles: retrieval practice rather than rereading, spacing, and inner feedback, in which people compare their own attempt with a model answer (after David Nicol). Formats borrowed carefully from social media (short cards, visible progress and a reason to return) make the material worth coming back to, without endless feeds or streak pressure. The framework is already in use for non-clinical subjects; its adaptation to diabetes is planned and has not been tested with patients.",
+          "stage": "Planned",
+          "featured": false,
           "href": null,
           "linkLabel": null
         }

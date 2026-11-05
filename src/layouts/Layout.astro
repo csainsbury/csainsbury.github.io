@@ -10,10 +10,32 @@ interface Props {
 
 const {
   title = 'Chris Sainsbury — sainsbury.ai',
-  description = 'Consultant physician in diabetes and endocrinology, building and studying models of electronic health records.',
+  description = 'Chris Sainsbury: consultant physician in diabetes and endocrinology in Glasgow, building and studying AI models of electronic health records, clinical decision support and tools for research.',
   currentPath = '/',
   hideNavigation = false,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Chris Sainsbury',
+  url: 'https://sainsbury.ai/',
+  email: 'mailto:chris@sainsbury.ai',
+  jobTitle: 'Consultant Physician, Diabetes and Endocrinology',
+  honorificSuffix: 'BSc MD FRCP FBCS',
+  worksFor: { '@type': 'Organization', name: 'NHS Greater Glasgow and Clyde' },
+  affiliation: [
+    { '@type': 'CollegeOrUniversity', name: 'University of Glasgow' },
+    { '@type': 'CollegeOrUniversity', name: 'University of Dundee' },
+    { '@type': 'CollegeOrUniversity', name: 'University of Birmingham' },
+  ],
+  sameAs: [
+    'https://orcid.org/0000-0002-7984-5721',
+    'https://scholar.google.co.uk/citations?user=6zfnq1kAAAAJ',
+    'https://github.com/csainsbury',
+  ],
+};
 
 const nav = [
   { href: '/projects', label: 'Projects' },
@@ -36,6 +58,14 @@ const nav = [
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="sainsbury.ai" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
   </head>
   <body>
     <div class="wrap">
@@ -61,7 +91,7 @@ const nav = [
       </main>
 
       <footer class="site-footer">
-        <span class="email">chris@sainsbury.ai</span>
+        <a class="email" href="mailto:chris@sainsbury.ai">chris@sainsbury.ai</a>
         <a href="https://orcid.org/0000-0002-7984-5721" target="_blank" rel="noreferrer">ORCID</a>
         <a href="https://scholar.google.co.uk/citations?user=6zfnq1kAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
         <a href="https://github.com/csainsbury/" target="_blank" rel="noreferrer">GitHub</a>

@@ -111,7 +111,7 @@ main > * { min-width: 0; max-width: 100%; }
 .project__title { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; }
 .project__gloss { font-family: var(--mono); font-size: 12px; color: var(--accent); }
 .project__stage { align-self: flex-start; font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px solid var(--line-strong); border-radius: 999px; padding: 1px 8px; }
-.project__summary { font-size: 16px; line-height: 1.55; font-weight: 300; color: var(--fg-2); }
+.project__summary { font-size: 16px; line-height: 1.55; font-weight: 300; color: var(--fg-2); max-width: 72ch; }
 .project--detail .project__summary { font-weight: 400; color: var(--fg); }
 .project__para { font-size: 15px; line-height: 1.65; color: var(--fg-2); max-width: 72ch; }
 .project__para strong { font-weight: 500; color: var(--fg); }
@@ -125,8 +125,8 @@ a.project:hover .project__title { color: var(--accent-hover); }
 .outputs { display: flex; flex-direction: column; gap: 22px; }
 .output { display: flex; flex-wrap: wrap; gap: 6px 32px; align-items: baseline; }
 .output__meta { flex: 0 0 220px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.output--stacked { flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--line); }
-.output--stacked .output__meta { flex-basis: auto; }
+.output--stacked { flex-direction: column; flex-wrap: nowrap; gap: 4px; padding-top: 14px; border-top: 1px solid var(--line); }
+.output--stacked .output__meta, .output--stacked .output__body { flex: none; }
 .output__body { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 .output__title { font-size: 18px; line-height: 1.4; }
 a.output__title:hover { color: var(--accent-hover); }
@@ -141,7 +141,7 @@ a.output__title:hover { color: var(--accent-hover); }
 .section-head h2 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -0.02em; }
 .section-head p { color: var(--muted); max-width: 70ch; }
 
-.two-col { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 64px; }
+.two-col { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 64px; align-items: start; }
 @media (max-width: 900px) { .two-col { grid-template-columns: minmax(0, 1fr); } }
 .software { display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid var(--line); }
 .software h3 { margin: 0; font-size: 19px; font-weight: 500; }

@@ -27,7 +27,7 @@ The production build writes static files to `dist/`.
 `src/data/portfolio.json` is the shared public-copy source for Home and Projects:
 
 - `now`: a short current-emphasis paragraph; `updated` stays null until an approved substantive update has a date.
-- `sections[].projects`: one-line summary, abstract-level `aim` and `approach`, optional verified stage, featured flag and optional public output link. Keep 3–4 featured projects. Stage vocabulary: Exploring / Building / Evaluating / Public release; null means no verified stage is displayed.
+- `sections[].projects`: one-line summary, abstract-level `aim` and `approach`, optional verified stage, featured flag and optional public output link. Keep 3–4 featured projects. Stage vocabulary: Planned / Set-up / Exploring / Building / Evaluating / Public release; null means no verified stage is displayed.
 - `milestones`: dated, source-linked public developments. Preprints must be labelled as preprints. Never use a review date as an event date or invent milestones to fill a quota.
 
 `ProjectCard.astro` renders consistent project copy and the latest public milestone on both pages. The homepage displays at most five milestones, newest first. The introduction remains stable.

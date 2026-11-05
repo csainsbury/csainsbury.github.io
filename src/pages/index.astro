@@ -5,7 +5,7 @@ import portfolio from '../data/portfolio.json';
 import ProjectCard from '../components/ProjectCard.astro';
 
 const currentProjects = portfolio.sections.flatMap((section) => section.projects).filter((project) => project.featured);
-const recentOutputs = publicationsData.items.slice(0, 4);
+const recentOutputs = publicationsData.items.slice(0, 3);
 
 // Illustrative record: coded events placed at their true day offsets.
 const events: [string, number, 'event' | 'measure'][] = [
@@ -75,6 +75,12 @@ const tokens = events.map(([code, day, kind], i) => {
   <section class="section" aria-labelledby="outputs-heading">
     <h2 id="outputs-heading" class="label">Recent outputs</h2>
     <div class="outputs">
+      <div class="output">
+        <span class="output__meta">Nov 2026 · Talk, DTN-UK</span>
+        <div class="output__body">
+          <a class="output__title" href="https://glucose.ai/dtn/article" target="_blank" rel="noreferrer">Beyond glucose prediction: where else can AI improve diabetes care?</a>
+        </div>
+      </div>
       {recentOutputs.map((paper) => (
         <div class="output">
           <span class="output__meta">{paper.year} · {paper.venue}</span>
