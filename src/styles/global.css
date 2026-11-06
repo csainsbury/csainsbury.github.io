@@ -44,12 +44,12 @@ p { margin: 0; }
 img { max-width: 100%; }
 
 .wrap {
-  max-width: 1180px;
+  max-width: 90rem;
   margin: 0 auto;
   padding-left: max(16px, env(safe-area-inset-left, 0px), 4vw);
   padding-right: max(16px, env(safe-area-inset-right, 0px), 4vw);
 }
-@media (min-width: 1300px) { .wrap { padding-left: 48px; padding-right: 48px; } }
+@media (min-width: 1500px) { .wrap { padding-left: 48px; padding-right: 48px; } }
 
 .mono { font-family: var(--mono); }
 .muted { color: var(--muted); }
@@ -111,9 +111,9 @@ main > * { min-width: 0; max-width: 100%; }
 .project__title { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; }
 .project__gloss { font-family: var(--mono); font-size: 12px; color: var(--accent); }
 .project__stage { align-self: flex-start; font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px solid var(--line-strong); border-radius: 999px; padding: 1px 8px; }
-.project__summary { font-size: 16px; line-height: 1.55; font-weight: 300; color: var(--fg-2); max-width: 72ch; }
+.project__summary { font-size: 16px; line-height: 1.55; font-weight: 300; color: var(--fg-2); max-width: 54rem; }
 .project--detail .project__summary { font-weight: 400; color: var(--fg); }
-.project__para { font-size: 15px; line-height: 1.65; color: var(--fg-2); max-width: 72ch; }
+.project__para { font-size: 15px; line-height: 1.65; color: var(--fg-2); max-width: 54rem; }
 .project__para strong { font-weight: 500; color: var(--fg); }
 .project__milestone { display: flex; flex-direction: column; gap: 2px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 14px; }
 .project__milestone .meta { font-family: var(--mono); font-size: 11px; color: var(--muted); }
@@ -133,13 +133,13 @@ a.output__title:hover { color: var(--accent-hover); }
 .output__authors { font-size: 14px; color: var(--muted); }
 
 /* Inner page headers */
-.page-head { display: flex; flex-direction: column; gap: 16px; max-width: 760px; }
+.page-head { display: flex; flex-direction: column; gap: 16px; max-width: 54rem; }
 .page-head h1 { margin: 0; font-size: clamp(36px, 5vw, 48px); line-height: 1.05; font-weight: 500; letter-spacing: -0.03em; }
 .page-head .lead { font-size: 19px; line-height: 1.5; font-weight: 300; color: var(--fg-2); }
 .page-head .note { font-family: var(--mono); font-size: 12px; line-height: 1.7; color: var(--muted); }
 .section-head { display: flex; flex-direction: column; gap: 6px; }
 .section-head h2 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -0.02em; }
-.section-head p { color: var(--muted); max-width: 70ch; }
+.section-head p { color: var(--muted); max-width: 54rem; }
 
 .two-col { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 64px; align-items: start; }
 @media (max-width: 900px) { .two-col { grid-template-columns: minmax(0, 1fr); } }
